@@ -1,0 +1,14 @@
+Windows
+Administrator: P@ssw0rd
+JamesBond: walther9mm
+zawsze reset maszyny wirtualnej
+
+Linux
+root: 3edcvfr4
+najlepiej wziąć linux clean
+
+Hasło na web: student
+
+uczyć się ze skryptów bo będą wejściówki
+
+drukować arkusz na każde zajęcia, będą zbierane na ocenę, spiąć i podpisać

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minutnik", "Minutnik\Minutnik.csproj", "{BBF63190-8740-4E0C-B219-7AA704A5415E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BBF63190-8740-4E0C-B219-7AA704A5415E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBF63190-8740-4E0C-B219-7AA704A5415E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBF63190-8740-4E0C-B219-7AA704A5415E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBF63190-8740-4E0C-B219-7AA704A5415E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {33499A86-15F2-458E-9D43-BE1E102DF799}
+	EndGlobalSection
+EndGlobal

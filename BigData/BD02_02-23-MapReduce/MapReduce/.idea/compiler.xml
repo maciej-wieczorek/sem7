@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="yarn-application" />
+        <module name="MapReduce" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="CheckpointTesting" target="11" />
+      <module name="mr-word-count" target="1.8" />
+      <module name="NumStateProcessing" target="11" />
+      <module name="SensorDataAnalysis" target="11" />
+      <module name="TaxiAnalysis" target="11" />
+      <module name="TaxiBatchProcessing" target="11" />
+      <module name="TaxiEventsAnalysis" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

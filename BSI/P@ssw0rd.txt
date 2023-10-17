@@ -1,0 +1,7 @@
+Windows
+Administrator: P@ssw0rd
+zawsze reset maszyny wirtualnej
+
+Linux
+root: 3edcvfa4
+najlepiej wziąć linux clean
