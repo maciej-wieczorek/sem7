@@ -27,24 +27,25 @@ public class AvgSizeStations extends Configured implements Tool {
         job.setJarByClass(this.getClass());
         FileInputFormat.addInputPath(job, new Path(args[0]));
         FileOutputFormat.setOutputPath(job, new Path(args[1]));
+
         //DONE: set mapper and reducer class
         job.setMapperClass(AvgSizeStationMapper.class);
-        job.setCombinerClass(AvgSizeStationCombiner.class);
         job.setReducerClass(AvgSizeStationReducer.class);
-
 
         //DONE: clean up the data types on both levels: intermediate and final
         job.setMapOutputKeyClass(Text.class);
-        job.setMapOutputValueClass(SumCount.class);
+        job.setMapOutputValueClass(IntWritable.class);
+
         job.setOutputKeyClass(Text.class);
-        job.setOutputValueClass(DoubleWritable.class);
+        job.setOutputValueClass(IntWritable.class);
         return job.waitForCompletion(true) ? 0 : 1;
     }
 
-    public static class AvgSizeStationMapper extends Mapper<LongWritable, Text, Text, SumCount> {
+    public static class AvgSizeStationMapper extends Mapper<LongWritable, Text, Text, IntWritable> {
 
         private final Text year = new Text();
-        private double size = 0;
+        private final IntWritable size = new IntWritable();
+
         public void map(LongWritable offset, Text lineText, Context context) {
             try {
                 if (offset.get() != 0) {
@@ -57,12 +58,12 @@ public class AvgSizeStations extends Configured implements Tool {
                                     word.lastIndexOf('/') + 5));
                         }
                         if (i == 5) {
-                            size = Double.parseDouble(word);
+                            size.set(Integer.parseInt(word));
                         }
                         i++;
                     }
                     //DONE: write intermediate pair to the context
-                    context.write(year, new SumCount(size, 1));
+                    context.write(year, size);
 
                 }
             } catch (Exception e) {
@@ -71,7 +72,7 @@ public class AvgSizeStations extends Configured implements Tool {
         }
     }
 
-    public static class AvgSizeStationReducer extends Reducer<Text, SumCount, Text, DoubleWritable> {
+    public static class AvgSizeStationReducer extends Reducer<Text, IntWritable, Text, DoubleWritable> {
 
         private final DoubleWritable resultValue = new DoubleWritable();
         Float average;
@@ -79,7 +80,7 @@ public class AvgSizeStations extends Configured implements Tool {
         int sum;
 
         @Override
-        public void reduce(Text key, Iterable<SumCount> values,
+        public void reduce(Text key, Iterable<IntWritable> values,
                            Context context) throws IOException, InterruptedException {
             average = 0f;
             count = 0f;
@@ -87,9 +88,9 @@ public class AvgSizeStations extends Configured implements Tool {
 
             Text resultKey = new Text("average station size in " + key + " was: ");
 
-            for (SumCount val : values) {
-                sum += val.getSum().get();
-                count += val.getCount().get();
+            for (IntWritable val : values) {
+                sum += val.get();
+                count += 1;
             }
             //DONE: set average variable properly
             average = sum / count;
@@ -97,7 +98,6 @@ public class AvgSizeStations extends Configured implements Tool {
             resultValue.set(average);
             //DONE: write result pair to the context
             context.write(resultKey, resultValue);
-
         }
     }
 
