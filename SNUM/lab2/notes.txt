@@ -1,0 +1,4 @@
+wywalic passengerid i name
+ryzowanie tekstowe drzew: treelib
+raport: wypisac entropie na pierwszym poziomie podzialu
+wczytaj csv w pandas

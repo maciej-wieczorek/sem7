@@ -630,3 +630,5 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+.~lock*
