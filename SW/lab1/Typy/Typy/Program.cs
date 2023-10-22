@@ -16,6 +16,8 @@
     }
     private static void Main(string[] args)
     {
+        string s = null;
+        int[2] tab = new int[2];
         Point p1;
         //p1.X = 1;
         //p1.Y = 1;
@@ -33,6 +35,7 @@
         Point p4 = new Point();
         //Point p4;
         g(p4);
+
         p4.Print();
     }
 
