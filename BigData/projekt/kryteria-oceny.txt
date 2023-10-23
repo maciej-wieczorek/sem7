@@ -1,0 +1,31 @@
+Za całość projektu można otrzymać 30 punktów. 
+
+Warunkiem otrzymania punktów za projekt jest jego samodzielne wykonanie zgodnie z przydzielonym wariantem i zadeklarowanie tego wariantu podczas rejestracji rozwiązania.
+
+Podział punktów za poszczególne elementy składowe jest opisany poniżej. 
+
+1.Program MapReduce (razem 8 pkt)
+Poprawnie działający Mapper – 3 pkt
+Poprawnie działający Reduktor – 3 pkt
+Skuteczne wykorzystanie agregatora łączącego (Combiner) – 2 pkt 
+
+2.Program Pig/Hive (razem 7 pkt)
+Poprawna implementacja przetwarzania – 2 pkt 
+Wykorzystanie parametrów wskazujących ścieżki źródłowe i wynikowe - 1 pkt
+W zależności od wariantu – 2 pkt
+Pig: zdefiniowanie schematów obu zbiorów danych i konsekwentne wykorzystanie schematów podczas przetwarzania 
+Hive: uwzględnienie charakteru przetwarzania – przetwarzamy, nie przechowujemy – wykorzystanie tabel zewnętrznych, uniknięcie niepotrzebnego składowania danych
+Umieszczenie kompletu poleceń w skrypcie dającym się uruchomić z linii poleceń – 1 pkt
+Wygenerowanie wynikowego zbioru danych w formacie JSON – 1 pkt
+
+3.Dostosowanie przepływu (razem 5 pkt)
+zawarte poprawne polecenie uruchamiające program MapReduce – 2 pkt
+zawarte poprawne polecenie uruchamiające skrypt Pig/Hive – 1 pkt
+na ile pozwolił on bez żadnych problemów i wydajnie (silniki) uruchomić cały projekt – 2 pkt
+
+4.Ocena cudzych rozwiązań w ramach warsztatu (razem 10 pkt)
+Poprawna ocena wszystkich rozwiązań – 10 pkt
+Błędy popełnione przy ocenie lub brak oceny pojedynczego rozwiązania odejmują do CEIL(10/(liczba przypisanych rozwiązań do oceny)) punktów. 
+Suma ujemnych punktów nie może być większa niż 10.
+
+Przez poprawne działanie Mappera, Reduktora, agregatora łączącego, oraz programów Hive rozumie się nie tylko sam fakt działania, ale także uzyskiwanie poprawnych wyników przetwarzania. 

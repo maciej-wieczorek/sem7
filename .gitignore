@@ -632,3 +632,4 @@ FodyWeavers.xsd
 *.sln.iml
 
 .~lock*
+BigData/projekt/zestaw*/
