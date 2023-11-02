@@ -13,6 +13,9 @@ import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class CountStartingZonePassengers extends Configured implements Tool {
 
@@ -24,8 +27,8 @@ public class CountStartingZonePassengers extends Configured implements Tool {
     public int run(String[] args) throws Exception {
         Job job = Job.getInstance(getConf(), "CountStartingZonePassengers");
         job.setJarByClass(this.getClass());
-        FileInputFormat.addInputPath(job, new Path(args[0]));
-        FileOutputFormat.setOutputPath(job, new Path(args[1]));
+        FileInputFormat.addInputPath(job, new Path(args[1]));
+        FileOutputFormat.setOutputPath(job, new Path(args[2]));
 
         job.setMapperClass(MyMapper.class);
         job.setCombinerClass(MyCombiner.class);
@@ -38,6 +41,19 @@ public class CountStartingZonePassengers extends Configured implements Tool {
         return job.waitForCompletion(true) ? 0 : 1;
     }
 
+    public static String extractMonth(String inputDate) {
+        SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        SimpleDateFormat outputFormat = new SimpleDateFormat("yyyy-MM");
+
+        try {
+            Date date = inputFormat.parse(inputDate);
+            return outputFormat.format(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     public static class MyMapper extends Mapper<LongWritable, Text, Text, IntWritable> {
 
         public void map(LongWritable offset, Text lineText, Context context) {
@@ -45,11 +61,12 @@ public class CountStartingZonePassengers extends Configured implements Tool {
                 if (offset.get() != 0) {
                     String line = lineText.toString();
                     String[] split = line.split(",");
-                    String month = split[1];
+                    String month = extractMonth(split[1]);
+                    int passengersCount = Integer.parseInt(split[4]);
                     String zone = split[7];
                     Text key = new Text();
-                    key.set(month+zone);
-                    context.write(key, new IntWritable(1));
+                    key.set(month + " " + zone);
+                    context.write(key, new IntWritable(passengersCount));
 
                 }
             } catch (Exception e) {
