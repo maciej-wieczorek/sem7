@@ -62,7 +62,7 @@ public class CountStartingZonePassengers extends Configured implements Tool {
                     String line = lineText.toString();
                     String[] split = line.split(",");
                     String month = extractMonth(split[1]);
-                    int passengersCount = Integer.parseInt(split[4]);
+                    int passengersCount = Integer.parseInt(split[3]);
                     String zone = split[7];
                     Text key = new Text();
                     key.set(month + " " + zone);
