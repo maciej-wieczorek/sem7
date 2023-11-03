@@ -65,7 +65,7 @@ public class CountStartingZonePassengers extends Configured implements Tool {
                     int passengersCount = Integer.parseInt(split[3]);
                     String zone = split[7];
                     Text key = new Text();
-                    key.set(month + " " + zone);
+                    key.set(month + "\t" + zone);
                     context.write(key, new IntWritable(passengersCount));
 
                 }
