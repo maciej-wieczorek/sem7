@@ -1,0 +1,10 @@
+robić mniej kopiowania
+wpisać wynik mr do external table dla hive w hdfs
+
+nie wykorzystywac orc wykorzystać ext!
+
+hdfs ma brać ds4 z gs://
+map reduce ma brac input z gs://
+
+insert into temp_table
+select ...
