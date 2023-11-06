@@ -8,3 +8,5 @@ map reduce ma brac input z gs://
 
 insert into temp_table
 select ...
+
+czy usuwać temp_table w skrypcie?

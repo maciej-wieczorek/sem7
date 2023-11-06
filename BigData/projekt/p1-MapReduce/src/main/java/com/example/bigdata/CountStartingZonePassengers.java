@@ -58,17 +58,14 @@ public class CountStartingZonePassengers extends Configured implements Tool {
 
         public void map(LongWritable offset, Text lineText, Context context) {
             try {
-                if (offset.get() != 0) {
-                    String line = lineText.toString();
-                    String[] split = line.split(",");
-                    String month = extractMonth(split[1]);
-                    int passengersCount = Integer.parseInt(split[3]);
-                    String zone = split[7];
-                    Text key = new Text();
-                    key.set(month + "\t" + zone);
-                    context.write(key, new IntWritable(passengersCount));
-
-                }
+                String line = lineText.toString();
+                String[] split = line.split(",");
+                String month = extractMonth(split[1]);
+                int passengersCount = Integer.parseInt(split[3]);
+                String zone = split[7];
+                Text key = new Text();
+                key.set(month + "\t" + zone);
+                context.write(key, new IntWritable(passengersCount));
             } catch (Exception e) {
                 e.printStackTrace();
             }

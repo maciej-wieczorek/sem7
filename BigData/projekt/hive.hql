@@ -2,18 +2,19 @@ create external table if not exists taxizones_ext(locationID int, borough string
 ROW FORMAT DELIMITED
 FIELDS TERMINATED BY ','
 STORED AS TEXTFILE
-location 'gs://$BUCKET_NAME/projekt1/input/datasource4';
+location '${input_dir4}'
+TBLPROPERTIES ("skip.header.line.count"="1");
 
-create external table if not exists mrout_ext(month string, zone string, passengers int)
+create external table if not exists dir3_ext(month string, zone string, passengers int)
 ROW FORMAT DELIMITED
 FIELDS TERMINATED BY '\t'
 STORED AS TEXTFILE
-location 'output';
+location '${input_dir3}';
 
-CREATE TABLE IF NOT EXISTS temp_table(month, string, zone borough, passengers int);
+create table if not exists temp_table(month string, borough string, passengers int)
+ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.JsonSerDe'
+STORED AS TEXTFILE
+location '${output_dir6}';
+
 insert into temp_table
-select month, borough, passengers from mrout_ext m join taxizones_ext t on m.zone = t.locationID order by passengers desc limit 10;
-
-INSERT OVERWRITE LOCAL DIRECTORY 'hive_output'
-ROW FORMAT SERDE 'org.apache.hive.hcatalog.data.JsonSerDe'
-SELECT * FROM temp_table;
+select month, borough, passengers from dir3_ext d3 join taxizones_ext t on d3.zone = t.locationID order by passengers desc limit 10;
