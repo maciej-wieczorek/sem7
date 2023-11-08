@@ -1,0 +1,1 @@
+mkdir -p ~/airflow/dags/project_files

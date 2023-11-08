@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Objects;
 
 public class CountStartingZonePassengers extends Configured implements Tool {
 
@@ -60,12 +61,15 @@ public class CountStartingZonePassengers extends Configured implements Tool {
             try {
                 String line = lineText.toString();
                 String[] split = line.split(",");
-                String month = extractMonth(split[1]);
-                int passengersCount = Integer.parseInt(split[3]);
-                String zone = split[7];
-                Text key = new Text();
-                key.set(month + "\t" + zone);
-                context.write(key, new IntWritable(passengersCount));
+                if (Objects.equals(split[9], "2"))
+                {
+                    String month = extractMonth(split[1]);
+                    int passengersCount = Integer.parseInt(split[3]);
+                    String zone = split[7];
+                    Text key = new Text();
+                    key.set(month + "\t" + zone);
+                    context.write(key, new IntWritable(passengersCount));
+                }
             } catch (Exception e) {
                 e.printStackTrace();
             }
