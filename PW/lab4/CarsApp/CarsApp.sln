@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarsApp", "CarsApp\CarsApp.csproj", "{160740CB-9D25-4B93-9C63-51F9A8516FD6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarsApp.Core", "CarsApp.Core\CarsApp.Core.csproj", "{A4600DA3-DB99-4F1D-9E68-F1954EEFCC64}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarsApp.Interfaces", "CarsApp.Interfaces\CarsApp.Interfaces.csproj", "{042AE2B3-789F-4A2D-A53B-BB67DE3A93B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarsApp.DAOMock1", "CarsApp.DAOMock1\CarsApp.DAOMock1.csproj", "{FB2E1BF1-B672-49DB-9D94-F70F45840FEA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarsApp.BLC", "CarsApp.BLC\CarsApp.BLC.csproj", "{6CEA1301-EAED-4108-9765-99E84EB739A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarsApp.DAOMock2", "CarsApp.DAOMock2\CarsApp.DAOMock2.csproj", "{901BEE6E-C669-4226-AA4D-8A3E405947B3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{160740CB-9D25-4B93-9C63-51F9A8516FD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{160740CB-9D25-4B93-9C63-51F9A8516FD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{160740CB-9D25-4B93-9C63-51F9A8516FD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{160740CB-9D25-4B93-9C63-51F9A8516FD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4600DA3-DB99-4F1D-9E68-F1954EEFCC64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4600DA3-DB99-4F1D-9E68-F1954EEFCC64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4600DA3-DB99-4F1D-9E68-F1954EEFCC64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4600DA3-DB99-4F1D-9E68-F1954EEFCC64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{042AE2B3-789F-4A2D-A53B-BB67DE3A93B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{042AE2B3-789F-4A2D-A53B-BB67DE3A93B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{042AE2B3-789F-4A2D-A53B-BB67DE3A93B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{042AE2B3-789F-4A2D-A53B-BB67DE3A93B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB2E1BF1-B672-49DB-9D94-F70F45840FEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB2E1BF1-B672-49DB-9D94-F70F45840FEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB2E1BF1-B672-49DB-9D94-F70F45840FEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB2E1BF1-B672-49DB-9D94-F70F45840FEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CEA1301-EAED-4108-9765-99E84EB739A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CEA1301-EAED-4108-9765-99E84EB739A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CEA1301-EAED-4108-9765-99E84EB739A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CEA1301-EAED-4108-9765-99E84EB739A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{901BEE6E-C669-4226-AA4D-8A3E405947B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{901BEE6E-C669-4226-AA4D-8A3E405947B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{901BEE6E-C669-4226-AA4D-8A3E405947B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{901BEE6E-C669-4226-AA4D-8A3E405947B3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FD59DB19-8084-4124-8B70-938B8CB67F18}
+	EndGlobalSection
+EndGlobal
