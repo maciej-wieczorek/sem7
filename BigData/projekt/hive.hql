@@ -11,10 +11,22 @@ FIELDS TERMINATED BY '\t'
 STORED AS TEXTFILE
 location '${input_dir3}';
 
-create table if not exists temp_table(month string, borough string, passengers int)
+create external table if not exists temp_table_ext(month string, borough string, passengers int)
 ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.JsonSerDe'
 STORED AS TEXTFILE
 location '${output_dir6}';
 
-insert into temp_table
-select month, borough, passengers from dir3_ext d3 join taxizones_ext t on d3.zone = t.locationID order by passengers desc limit 10;
+with grouped as (
+    select month, borough, sum(passengers) as passengers
+    from dir3_ext d3 join taxizones_ext t on d3.zone = t.locationID
+    group by month, borough
+),
+ranked as (
+    select month, borough, passengers,
+    row_number() over (partition by month order by passengers DESC) as rank
+    from grouped
+)
+insert into temp_table_ext
+select month, borough, passengers
+from ranked
+where rank <= 3;

@@ -1,0 +1,2 @@
+/home/bd-23-mw/airflow/dags
+gs://maciejmail_wieczorek/projekt1/input
