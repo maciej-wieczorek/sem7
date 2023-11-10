@@ -11,7 +11,7 @@ FIELDS TERMINATED BY '\t'
 STORED AS TEXTFILE
 location '${input_dir3}';
 
-drop table if exists temp_table
+drop table if exists temp_table;
 
 create table temp_table(month string, borough string, passengers int)
 ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.JsonSerDe'
