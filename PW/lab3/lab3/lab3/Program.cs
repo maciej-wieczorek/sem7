@@ -193,6 +193,7 @@ internal class Program
     {
         //zad4();
         //test();
-        testEnumerable();
+        //testEnumerable();
+        test();
     }
 }

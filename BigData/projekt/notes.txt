@@ -10,3 +10,6 @@ insert into temp_table
 select ...
 
 czy usuwać temp_table w skrypcie?
+
+zrobić bez external dla temp table, tzw. zarządzalna
+zrobić drop przy każdym skrypcie?
