@@ -13,3 +13,5 @@ czy usuwać temp_table w skrypcie?
 
 zrobić bez external dla temp table, tzw. zarządzalna
 zrobić drop przy każdym skrypcie?
+
+czy create external table if not exists tworzy tabele jeśli jest nazwa ta sama, ale jest inna lokacja

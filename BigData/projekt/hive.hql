@@ -11,7 +11,9 @@ FIELDS TERMINATED BY '\t'
 STORED AS TEXTFILE
 location '${input_dir3}';
 
-create external table if not exists temp_table_ext(month string, borough string, passengers int)
+drop table if exists temp_table
+
+create table temp_table(month string, borough string, passengers int)
 ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.JsonSerDe'
 STORED AS TEXTFILE
 location '${output_dir6}';
@@ -26,7 +28,7 @@ ranked as (
     row_number() over (partition by month order by passengers DESC) as rank
     from grouped
 )
-insert into temp_table_ext
+insert into temp_table
 select month, borough, passengers
 from ranked
 where rank <= 3;
