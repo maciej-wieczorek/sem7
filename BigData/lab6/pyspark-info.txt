@@ -1,0 +1,5 @@
+version 3.3.2
+Python version 3.10.8
+Spark context Web UI available at http://pbd-cluster-m.europe-central2-c.c.big-data-2023-10-mw.internal:34355
+Spark context available as 'sc' (master = yarn, app id = application_1700211594022_0001).
+SparkSession available as 'spark'.
