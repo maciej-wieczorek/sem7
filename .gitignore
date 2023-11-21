@@ -633,3 +633,4 @@ FodyWeavers.xsd
 
 .~lock*
 BigData/projekt/zestaw*/
+*.db

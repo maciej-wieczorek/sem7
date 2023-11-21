@@ -9,7 +9,7 @@
             "type": "python",
             "request": "launch",
             "program": "${file}",
-            "args": ["C:\\Users\\macie\\Desktop\\studia\\przedmioty\\BigData\\lab6\\cano.txt", "Watson"],
+            "args": ["cano.txt", "Watson"],
             "console": "integratedTerminal",
             "justMyCode": true
         }
