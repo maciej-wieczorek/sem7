@@ -1,0 +1,3 @@
+10 zadan
+praktyczne: wyznacz entropie, wyznacz information gain, który atrybut do drzewa, wyznacz błąd
+teoretyczne: z materiałów
