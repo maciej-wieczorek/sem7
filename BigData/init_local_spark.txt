@@ -1,0 +1,11 @@
+from pyspark import SparkConf, SparkContext
+from pyspark.sql import SparkSession
+import sys
+import os
+
+os.environ['PYSPARK_PYTHON'] = sys.executable
+os.environ['PYSPARK_DRIVER_PYTHON'] = sys.executable
+
+conf = SparkConf().setAppName("spark-dataframes-api-zadania")
+sc = SparkContext(conf=conf)
+spark = SparkSession.builder.appName("dataframes-zadania").getOrCreate()
