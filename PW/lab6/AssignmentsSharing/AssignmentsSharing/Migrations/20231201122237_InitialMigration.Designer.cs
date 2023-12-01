@@ -11,14 +11,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AssignmentsSharing.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20231117150905_InitialMigration")]
+    [Migration("20231201122237_InitialMigration")]
     partial class InitialMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "7.0.0");
+            modelBuilder.HasAnnotation("ProductVersion", "8.0.0");
 
             modelBuilder.Entity("AssignmentsSharing.Models.Assignment", b =>
                 {
