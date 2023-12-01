@@ -11,6 +11,7 @@ namespace AssignmentsSharing.Models
         public int TimeCost { get; set; }
         public int Priority { get; set; }
         public List<Status> Statuses { get; set; } = new List<Status>();
-        public Developer Developer { get; set; } = null;
+        public Developer? Developer { get; set; } = null;
+        public Issue? Issue { get; set; }
     }
 }

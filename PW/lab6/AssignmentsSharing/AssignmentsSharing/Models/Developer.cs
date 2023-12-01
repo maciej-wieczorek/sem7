@@ -1,5 +1,8 @@
-﻿namespace AssignmentsSharing.Models
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace AssignmentsSharing.Models
 {
+    [Index(nameof(Pseudonym), IsUnique = true)]
     public class Developer
     {
         public Guid Id { get; set; }

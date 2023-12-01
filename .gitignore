@@ -636,3 +636,5 @@ BigData/projekt/zestaw*/
 *.db
 cano-pdf/
 Migrations/
+*.db-shm
+*.db-wal
