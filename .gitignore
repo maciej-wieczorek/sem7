@@ -635,3 +635,4 @@ FodyWeavers.xsd
 BigData/projekt/zestaw*/
 *.db
 cano-pdf/
+Migrations/
