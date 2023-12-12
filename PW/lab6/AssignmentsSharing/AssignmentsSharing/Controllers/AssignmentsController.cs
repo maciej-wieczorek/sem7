@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AssignmentsSharing;
 using AssignmentsSharing.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AssignmentsSharing.Controllers
 {
+    [Authorize]
     public class AssignmentsController : Controller
     {
         private readonly DataContext _context;

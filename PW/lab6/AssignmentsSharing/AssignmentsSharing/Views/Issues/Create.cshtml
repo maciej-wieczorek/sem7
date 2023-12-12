@@ -23,6 +23,14 @@
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label class="control-label">Developers</label>
+                <input id="Developers" name="Developers" class="form-control autocompletebyid" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Assignments</label>
+                <input id="Assignments" name="Assignments" class="form-control autocompletebyid" />
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
@@ -36,3 +44,9 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
+<script>
+    var tags = {};
+    tags["Developers"] = @Json.Serialize(ViewBag.ListOfPseudonyms);
+    tags["Assignments"] = @Json.Serialize(ViewBag.ListOfLabels);
+</script>

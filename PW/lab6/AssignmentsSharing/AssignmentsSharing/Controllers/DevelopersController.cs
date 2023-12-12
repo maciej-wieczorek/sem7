@@ -56,6 +56,8 @@ namespace AssignmentsSharing.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,FirstName,LastName,Pseudonym")] Developer developer)
         {
+            ModelState.Remove("Issues");
+            ModelState.Remove("Assignments");
             if (ModelState.IsValid)
             {
                 developer.Id = Guid.NewGuid();

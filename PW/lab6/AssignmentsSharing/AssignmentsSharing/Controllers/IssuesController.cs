@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AssignmentsSharing;
 using AssignmentsSharing.Models;
+using AssignmentsSharing.Algorithms.Exceptions;
+using AssignmentsSharing.Algorithms;
 
 namespace AssignmentsSharing.Controllers
 {
@@ -46,6 +48,8 @@ namespace AssignmentsSharing.Controllers
         // GET: Issues/Create
         public IActionResult Create()
         {
+            ViewBag.ListOfPseudonyms = _context.Developers.Select(u => u.Pseudonym).ToList();
+            ViewBag.ListOfLabels = _context.Assignments.Select(a => a.Label).ToList();
             return View();
         }
 
@@ -54,13 +58,43 @@ namespace AssignmentsSharing.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Label,Description")] Issue issue)
+        public async Task<IActionResult> Create([Bind("Id,Label,Description")] Issue issue,
+            [Bind("Developers")] string Developers, [Bind("Assignments")] string Assignments)
         {
+            ModelState.Remove("Developers");
+            ModelState.Remove("Assignments");
             if (ModelState.IsValid)
             {
                 issue.Id = Guid.NewGuid();
                 _context.Add(issue);
                 await _context.SaveChangesAsync();
+
+                issue = _context.Issues.Include("Developers")
+                    .Include("Assignments").FirstOrDefault(m => m.Id == issue.Id);
+
+                var listOfDevelopers = (Developers ?? "")
+                    .Split(",")
+                    .Select(pseudo => pseudo.Trim())
+                    .Join(_context.Developers,
+                        pseudo => pseudo,
+                        d => d.Pseudonym,
+                        (pseudo, d) => d)
+                    .ToList();
+
+                var listOfAssignments = (Assignments ?? "")
+                    .Split(",")
+                    .Select(desc => desc.Trim())
+                    .Join(_context.Assignments,
+                        desc => desc,
+                        a => a.Label,
+                        (desc, a) => a)
+                    .ToList();
+
+                issue.Developers = listOfDevelopers;
+                issue.Assignments = listOfAssignments;
+                _context.Issues.Update(issue);
+                _context.SaveChanges();
+
                 return RedirectToAction(nameof(Index));
             }
             return View(issue);
@@ -153,6 +187,43 @@ namespace AssignmentsSharing.Controllers
         private bool IssueExists(Guid id)
         {
             return _context.Issues.Any(e => e.Id == id);
+        }
+
+        public async Task<IActionResult> Suggest(Guid? id)
+        {
+            if (id == null || _context.Issues == null)
+            {
+                return NotFound();
+            }
+            var issue = await _context.Issues
+            .Include("Developers")
+            .Include("Assignments")
+            .FirstOrDefaultAsync(i => i.Id == id);
+            if (issue == null)
+            {
+                return NotFound();
+            }
+            try
+            {
+                var algorithm = new BinaryPartitionAlgorithm<Assignment>();
+                algorithm.SubsetsCount = issue.Developers.Count();
+                algorithm.InterpretAsWeight = i => i.TimeCost;
+                ViewBag.Result = algorithm.Run(issue.Assignments);
+            }
+            catch (InappropriateWeightException e)
+            {
+                ViewBag.Error = "Invalid time cost of one of the assignments";
+            }
+            catch (InputSetUnsplittableException e)
+            {
+                ViewBag.Error = "Cannot split the set of assignments";
+            }
+            catch (UnsupportedSubsetsCountException e)
+            {
+                ViewBag.Error = "Cannot split the set of assignments into " +
+                issue.Developers.Count() + " subsets";
+            }
+            return View(issue);
         }
     }
 }

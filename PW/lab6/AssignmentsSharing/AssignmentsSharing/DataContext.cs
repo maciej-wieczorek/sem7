@@ -1,10 +1,12 @@
 ﻿using AssignmentsSharing.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace AssignmentsSharing
 {
-    public class DataContext : DbContext
-    {
+    public class DataContext : IdentityDbContext<Developer, IdentityRole<Guid>, Guid>
+	{
         private IConfiguration _configuration;
         public DataContext(IConfiguration configuration) { _configuration = configuration; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
