@@ -1,0 +1,101 @@
+id,name,address,zipcode,city,country,effectiveDate
+1,Natalie Bates,211-8167 Id St.,070843,Cañas,Brazil,15-02-2022
+2,Calista Contreras,861-7362 Cubilia Ave,468403,Dublin,Turkey,13-10-2020
+3,Colton Gibbs,131-4245 Eleifend. Street,24117,Hamilton,New Zealand,07-08-2022
+4,Ethan Reed,131-4245 Eleifend. Street,72733,Cañas,Poland,06-07-2022
+5,Zeph Guerra,4409 Amet St.,9256,Mora,Spain,20-05-2022
+6,Jaime Dillon,8224 Amet Road,53604,Korneuburg,Peru,17-01-2021
+7,Hadassah Spence,131-4245 Eleifend. Street,M0S 5MP,Surabaya,Peru,04-02-2021
+8,Yoshio Medina,Ap #498-478 Adipiscing Road,O9 4WK,Tewkesbury,Mexico,29-01-2021
+9,Rahim Delacruz,840-6247 Pellentesque Road,712935,Ilesa,New Zealand,04-03-2021
+10,Stacy Church,Ap #623-7264 Nibh. Av.,45584,Port Pirie,Belgium,19-06-2022
+11,Isabelle Stevenson,131-4245 Eleifend. Street,16142,Hà Giang,Russian Federation,25-11-2020
+12,Sonia Webb,Ap #144-3401 Augue Avenue,18816,Saarbrücken,Vietnam,28-06-2022
+13,Marny Bond,131-4245 Eleifend. Street,45951,Coatzacoalcos,Chile,13-10-2021
+14,Adrian Mclaughlin,Ap #357-3798 Fermentum Ave,5211 VW,Hamburg,France,09-05-2022
+15,Herman Ballard,7914 Consectetuer Road,534843,Lagos,France,20-11-2021
+16,Kaitlin Landry,623-5682 Augue St.,351225,Libramont-Chevigny,Indonesia,29-10-2020
+17,Ifeoma Mcleod,294-5503 Lectus Avenue,U4W 4P7,Jecheon,Pakistan,16-03-2022
+18,Griffin Pruitt,131-4245 Eleifend. Street,53246,Cork,Spain,27-10-2021
+19,Tucker Sherman,6056 Venenatis Avenue,8218,Wonju,Peru,06-08-2021
+20,Kathleen Pugh,7018 Cras St.,3123,Ostrowiec Świętokrzyski,Peru,16-11-2020
+21,Chantale Holman,Ap #182-364 Cras Rd.,53713-581,Obertshausen,United Kingdom,29-03-2022
+22,Maryam Hines,Ap #951-2470 Morbi Road,84-154,Varna/Vahrn,Australia,14-09-2021
+23,Griffith Mcconnell,131-4245 Eleifend. Street,6587,Port Lincoln,Spain,26-07-2022
+24,Kevin Garcia,131-4245 Eleifend. Street,22261,Arequipa,Colombia,24-08-2021
+25,Malcolm Barlow,791 Turpis Road,132570,Nanaimo,United States,07-06-2021
+26,Aline Harvey,Ap #682-1687 Lobortis. Rd.,3889,Alto Hospicio,Pakistan,31-12-2021
+27,Slade Brown,224-5686 Tellus. Avenue,41214,Lloydminster,Netherlands,15-12-2021
+28,Imogene Franco,Ap #628-3651 Vestibulum Rd.,T2Y 8Y4,Dereham,Ireland,24-08-2022
+29,Nicholas Carpenter,Ap #472-1757 Orci. Ave,67542,Melilla,France,08-09-2021
+30,Colorado Lloyd,984-1484 Neque Av.,269882,Gangtok,Australia,25-02-2022
+31,Alexis Alexander,819-8910 Conubia Rd.,5131 XY,Floreffe,Indonesia,05-08-2021
+32,Omar Sweet,131-4245 Eleifend. Street,62821,Rangiora,South Korea,20-11-2021
+33,Hayden Pope,Ap #705-8500 Odio Av.,22382,Cao Lãnh,Brazil,13-03-2022
+34,Nicholas Foreman,259-7405 Nec Avenue,11403,Jeju,Peru,06-08-2022
+35,Amber White,Ap #797-6966 Feugiat Road,Q1W 3NJ,Mường Lay,Australia,13-07-2022
+36,Kai Mcbride,261-5456 Lacus. Ave,63-273,Katsina,Vietnam,18-07-2022
+37,Kasimir Villarreal,131-4245 Eleifend. Street,5244,Eschwege,Nigeria,26-02-2021
+38,Raja Kim,5146 Integer Ave,35-672,Lleida,Chile,04-12-2021
+39,Edan Combs,760-1001 Lorem Street,5522,Irkutsk,Italy,19-08-2021
+40,Mary Sandoval,Ap #720-6764 Lacinia St.,67287-157,Kortrijk,Italy,23-09-2021
+41,Celeste Workman,131-4245 Eleifend. Street,18186,Caruaru,South Korea,04-11-2021
+42,Juliet Flores,131-4245 Eleifend. Street,8820,Chañaral,United Kingdom,04-07-2022
+43,Pearl Wall,9756 Duis Road,1274,Diadema,Vietnam,04-06-2021
+44,Kasimir Irwin,156-1322 Nulla. Road,50218,Hồ Chí Minh City,Canada,30-01-2021
+45,Fletcher Clements,Ap #167-8144 Ipsum Rd.,2515 MI,İskenderun,Costa Rica,19-09-2022
+46,Ignatius Gamble,Ap #865-3359 Dictum St.,931264,Dörtyol,Russian Federation,12-06-2021
+47,Orlando Hubbard,131-4245 Eleifend. Street,17849,Yorkton,Indonesia,17-05-2022
+48,Angelica Strong,Ap #378-3827 Cras Street,362922,Uberlândia,Belgium,20-09-2021
+49,Jillian Allen,Ap #579-6025 Luctus Road,05547,Bengkulu,Mexico,30-10-2021
+50,Cruz Schwartz,982-9172 Quisque Rd.,30810,San Rafael,Sweden,19-10-2020
+51,Libby Nunez,2300 Morbi Rd.,EP14 7NF,Cinco Esquinas,Netherlands,22-04-2021
+52,Deirdre Pope,5727 Neque Rd.,7763,Hudiksvall,Peru,05-02-2022
+53,Kieran Preston,"337-6887 Tincidunt, St.",40825,Townsville,Nigeria,02-03-2021
+54,Mona Chambers,"337-6887 Tincidunt, St.",24109,Baddeck,United States,19-12-2020
+55,Phoebe Craft,"337-6887 Tincidunt, St.",6338 CW,Rachecourt,Spain,20-03-2021
+56,Lynn Wilson,Ap #418-4827 Ac Road,6017,Lidingo,Brazil,05-02-2021
+57,Kenneth Wolf,"337-6887 Tincidunt, St.",87484,Kozan,United Kingdom,15-06-2022
+58,Adrienne Aguilar,111-6579 Tincidunt. Rd.,71919,Heredia,Germany,05-11-2021
+59,Larissa Frederick,"337-6887 Tincidunt, St.",56210,Mohmand Agency,Ireland,24-11-2020
+60,Thane Mcfarland,2050 Augue. Avenue,538383,Dublin,Belgium,27-03-2021
+61,Lunea Rosario,Ap #843-9205 Magna. Rd.,51807,Henderson,New Zealand,07-08-2022
+62,Arthur Castro,"337-6887 Tincidunt, St.",644923,Dublin,Germany,10-03-2021
+63,Tasha Henderson,"337-6887 Tincidunt, St.",19164,Arica,Ireland,17-03-2022
+64,Desiree Barnes,963-5381 Lacus. Ave,855127,Ansan,Russian Federation,18-10-2021
+65,Inga Roth,Ap #350-6498 Dolor. Ave,24521-694,Minna,Mexico,08-05-2021
+66,Geraldine Nichols,Ap #425-4515 Dolor. Av.,56-933,Perquenco,Canada,27-09-2021
+67,Hammett Yates,Ap #752-9600 Accumsan St.,836470,Blenheim,Sweden,02-10-2022
+68,Clarke Carlson,2296 Vestibulum St.,163826,Logan City,Poland,28-10-2020
+69,Cairo Levine,Ap #632-7515 Varius. Rd.,69967,Strasbourg,Peru,03-07-2022
+70,Jamalia Francis,Ap #500-7564 Vel Rd.,7085,Białystok,Pakistan,23-06-2022
+71,Lara Boyer,Ap #370-6283 Eget St.,R6 1OC,Gönen,Turkey,11-06-2022
+72,Tana York,5011 Diam St.,70732,San Isidro de El General,Spain,01-10-2021
+73,Merritt Wise,390-8357 Nibh Av.,54582,Hudiksvall,India,27-04-2022
+74,Vernon Casey,650-5308 Felis Rd.,42987,Mirpur,Pakistan,14-11-2020
+75,Bradley Wallace,569-710 Mi Avenue,2097,Rzeszów,Sweden,26-07-2021
+76,Marcia Clark,889-1239 Turpis. St.,842518,Quetta,Belgium,01-11-2020
+77,Guy Russell,Ap #878-5581 Nullam Rd.,75944,Idar-Oberstei,Vietnam,24-10-2021
+78,Ursula Gaines,681 Mauris Rd.,38057-21821,Åkersberga,Canada,25-01-2022
+79,Alan Wells,"337-6887 Tincidunt, St.",TW15 7OB,Belfast,United States,29-01-2022
+80,Kennan Diaz,690 Hendrerit. St.,3483 QT,Santander,Poland,16-09-2021
+81,Raphael Stark,"337-6887 Tincidunt, St.",58177,Mamuju,New Zealand,22-03-2021
+82,Keane Poole,Ap #818-1425 Vestibulum St.,3825,Uyo,Pakistan,14-01-2022
+83,Amy Cervantes,685-8925 Ipsum Rd.,3748,Cork,South Korea,14-12-2021
+84,Bevis Mccoy,"337-6887 Tincidunt, St.",392223,Enns,Poland,06-01-2021
+85,Connor Rivers,"337-6887 Tincidunt, St.",0240,Bắc Kạn,Australia,02-06-2022
+86,Amity Henry,4876 Sapien Street,48-866,Delmenhorst,Russian Federation,07-10-2021
+87,Dillon Peterson,838-591 Eget Rd.,402452,Gangneung,Mexico,19-11-2021
+88,Kelly Vasquez,757-4038 Justo Ave,05826,Seogwipo,Costa Rica,13-02-2022
+89,Luke Myers,5741 Posuere Ave,660623,Drongen,South Korea,29-01-2022
+90,Scott Gamble,Ap #623-4278 Lacus. St.,27354-975,Köthen,Colombia,03-02-2021
+91,Channing Decker,619-1796 Enim Road,747735,Juárez,Chile,03-12-2021
+92,Daria Pacheco,Ap #652-7988 Mus. St.,25725,Guápiles,Indonesia,07-03-2022
+93,Thaddeus Mayer,813-1036 Cras Ave,669557,Bastia,Colombia,01-03-2022
+94,Adam Mccormick,Ap #697-7959 Phasellus Road,82172-214,Overrepen,Chile,02-11-2021
+95,Timon Munoz,Ap #789-3620 Aliquet St.,448129,Jeonju,South Korea,05-12-2020
+96,Rafael Lindsey,Ap #609-1107 Integer Av.,178766,Adrano,Netherlands,27-11-2020
+97,Quail Warren,"337-6887 Tincidunt, St.",42013,Silvassa,Canada,11-12-2021
+98,Rigel Christensen,2746 Elit St.,7383,Monteu Roero,Indonesia,23-09-2021
+99,Vanna Mcneil,8615 Neque Av.,62-745,Oamaru,Turkey,05-12-2021
+100,Harriet Rojas,Ap #810-8710 Enim. St.,84541,Lipetsk,Canada,21-10-2020
