@@ -4,3 +4,26 @@ hadoop fs -mkdir -p /home/maciejmail_wieczorek && hadoop fs -cp gs://bd-23-mw/pr
 
 hadoop fs -mkdir -p /home/maciejmail_wieczorek/projekt1/input/datasource1/
 hadoop fs -cp gs://bd-23-mw/projekt1/input/datasource1/part-00000 /home/maciejmail_wieczorek/projekt1/input/datasource1/
+
+0. VendorID
+1. tpep_pickup_datetime
+2. tpep_dropoff_datetime
+3. Passenger_count
+4. Trip_distance 
+5. RateCodeID
+6. Store_and_fwd_flag
+7. PULocationID
+8. DOLocationID
+9. Payment_type
+10.  Fare_amount
+11.  Extra
+12.  MTA_tax
+13.  Tip_amount
+14.  Tolls_amount
+15.  Improvement_surcharge
+16.  Total_amount
+
+0.  LocationID – identyfikator lokalizacji TLC Taxi Zone 
+1.  Borough – dzielnica  
+2.  Zone – nazwa strefy taksówek  
+3.  service_zone – nazwa strefy usługowej 
