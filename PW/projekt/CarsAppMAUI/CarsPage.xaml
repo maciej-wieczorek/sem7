@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:interfaces="clr-namespace:Cars.Interfaces;assembly=Interfaces"
+             x:Class="CarsAppMAUI.CarsPage"
+             Title="CarsPage"
+             xmlns:viewmodel="clr-namespace:CarsAppMAUI.ViewModels"
+            >
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <toolkit:EnumToIntConverter x:Key="EnumToIntConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <VerticalStackLayout>
+        <ListView ItemsSource="{Binding Cars}" SelectedItem="{Binding CarEdit}" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <HorizontalStackLayout x:DataType="viewmodel:CarViewModel">
+                            <Label Text="{Binding Name}" WidthRequest="100" HorizontalOptions="End"/>
+                            <Label Text="{Binding ProdYear}" WidthRequest="50" HorizontalOptions="End"/>
+                        </HorizontalStackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="Auto,Auto" BindingContext="{Binding CarEdit}">
+            <Label Grid.Row="0" Grid.Column="0" Text="ID"/>
+            <Entry Grid.Row="0" Grid.Column="1" Text="{Binding Id}"/>
+
+            <Label Grid.Row="1" Grid.Column="0" Text="Name"/>
+            <Entry Grid.Row="1" Grid.Column="1" Text="{Binding Name}">
+            </Entry>
+
+
+
+
+            <Label Grid.Row="2" Grid.Column="0" Text="Production Year" ToolTipProperties.Text="{Binding Errors}">
+            </Label>
+            <Entry Grid.Row="2" Grid.Column="1" Text="{Binding ProdYear}"/>
+            <!--<Label Text="{Binding ProdYearErrors}" IsVisible="{Binding ProdYearHasErrors}"/>-->
+
+            <Label Grid.Row="3" Grid.Column="0" Text="Przebieg">
+            </Label>
+            <Entry Grid.Row="3" Grid.Column="1" Text="{Binding Mileage}"/>
+
+            <Label Grid.Row="4" Grid.Column="0" Text="Skrzynia biegów"/>
+           <!-- <Picker WidthRequest="200" Grid.Row="4" Grid.Column="1"  ItemsSource="{Binding AllTransmissions}" SelectedIndex="{Binding Transmission, Converter={StaticResource EnumToIntConverter}, ConverterParameter={x:Type interfaces:TransmissionType},Mode=TwoWay}" TextColor="Black"/>-->
+
+            <Entry Grid.Row="4" Grid.Column="1" Text="{Binding Transmission}"/>
+
+            <Label Grid.Row="5" Grid.Column="0" Text="Silnik"/>
+            <Entry Grid.Row="5" Grid.Column="1" Text="{Binding Engine}"/>
+        </Grid>
+
+        <HorizontalStackLayout >
+            <Button Text="New Car" Command="{Binding CreateNewCarCommand}"></Button>
+            <Button Text="Save" Command="{Binding SaveCarCommand}"></Button>
+            <Button Text="Cancel" Command="{Binding CancelCommand}"></Button>
+        </HorizontalStackLayout>
+                
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="CarsAppMAUI.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:CarsAppMAUI"
+    Shell.FlyoutBehavior="Disabled"
+    Title="CarsAppMAUI">
+
+    <FlyoutItem>
+        <ShellContent
+            Title="Cars List"
+            ContentTemplate="{DataTemplate local:CarsPage}"
+            Route="CarsPage" />
+
+        <ShellContent
+            Title="strona główna"
+            ContentTemplate="{DataTemplate local:MainPage}"
+            Route="MainPage" />
+    </FlyoutItem>
+</Shell>
