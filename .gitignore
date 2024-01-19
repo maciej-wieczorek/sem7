@@ -639,3 +639,4 @@ Migrations/
 *.db-shm
 *.db-wal
 netflix/
+egzamin/

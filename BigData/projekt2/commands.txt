@@ -23,7 +23,7 @@ hadoop fs -cp gs://bd-23-mw/projekt1/input/datasource1/part-00000 /home/maciejma
 15.  Improvement_surcharge
 16.  Total_amount
 
-0.  LocationID – identyfikator lokalizacji TLC Taxi Zone 
-1.  Borough – dzielnica  
-2.  Zone – nazwa strefy taksówek  
-3.  service_zone – nazwa strefy usługowej 
+0.  LocationID
+1.  Borough
+2.  Zone
+3.  service_zone
