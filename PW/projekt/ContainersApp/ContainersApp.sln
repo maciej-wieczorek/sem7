@@ -5,13 +5,17 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContainersApp", "ContainersApp\ContainersApp.csproj", "{5249E548-6A52-4874-B58A-3CFB694F37CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContainersApp.BLC", "ContainersApp.BLC\ContainersApp.BLC.csproj", "{BDE6C2E1-7A14-4B9F-9CD2-EA65EBC06F97}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContainersApp.BLC", "ContainersApp.BLC\ContainersApp.BLC.csproj", "{BDE6C2E1-7A14-4B9F-9CD2-EA65EBC06F97}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContainersApp.Core", "ContainersApp.Core\ContainersApp.Core.csproj", "{5B3C81B6-9F31-41DE-B4F0-401860C75972}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContainersApp.Core", "ContainersApp.Core\ContainersApp.Core.csproj", "{5B3C81B6-9F31-41DE-B4F0-401860C75972}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContainersApp.DAOMock1", "ContainersApp.DAOMock1\ContainersApp.DAOMock1.csproj", "{0A01D741-E726-45AA-AD24-D8D5DF89C675}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContainersApp.DAOMock1", "ContainersApp.DAOMock1\ContainersApp.DAOMock1.csproj", "{0A01D741-E726-45AA-AD24-D8D5DF89C675}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContainersApp.Interfaces", "ContainersApp.Interfaces\ContainersApp.Interfaces.csproj", "{431E9D5B-4C59-4134-96BD-708D55117D5A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContainersApp.Interfaces", "ContainersApp.Interfaces\ContainersApp.Interfaces.csproj", "{431E9D5B-4C59-4134-96BD-708D55117D5A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContainersWebApp", "ContainersWebApp\ContainersWebApp.csproj", "{370B5B03-09B5-4CA6-B176-0C2903906041}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContainersMauiApp", "ContainersMauiApp\ContainersMauiApp.csproj", "{2CD50E00-8F31-4B7D-9363-6831D2C7169A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +43,16 @@ Global
 		{431E9D5B-4C59-4134-96BD-708D55117D5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{431E9D5B-4C59-4134-96BD-708D55117D5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{431E9D5B-4C59-4134-96BD-708D55117D5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{370B5B03-09B5-4CA6-B176-0C2903906041}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{370B5B03-09B5-4CA6-B176-0C2903906041}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{370B5B03-09B5-4CA6-B176-0C2903906041}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{370B5B03-09B5-4CA6-B176-0C2903906041}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CD50E00-8F31-4B7D-9363-6831D2C7169A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CD50E00-8F31-4B7D-9363-6831D2C7169A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CD50E00-8F31-4B7D-9363-6831D2C7169A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{2CD50E00-8F31-4B7D-9363-6831D2C7169A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CD50E00-8F31-4B7D-9363-6831D2C7169A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CD50E00-8F31-4B7D-9363-6831D2C7169A}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
