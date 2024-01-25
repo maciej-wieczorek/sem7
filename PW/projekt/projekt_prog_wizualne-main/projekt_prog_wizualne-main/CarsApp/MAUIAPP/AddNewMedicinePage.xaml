@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUIAPP.AddNewMedicinePage"
+             xmlns:viewmodel="clr-namespace:MAUIAPP.ViewModels"
+             xmlns:interfaces="clr-namespace:CarsApp.Core;assembly=CarsApp.Core"
+             Title="Edit Medicine">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <viewmodel:MyEnumToIntConverter x:Key="Myconverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <StackLayout Padding="20, 20, 20, 20">
+        <Label Text="Tryb dodawania dokumentu" HeightRequest="80" Padding="0" FontSize="Large" HorizontalTextAlignment="Center"/>
+        <HorizontalStackLayout Padding="0, 0, 0, 0" Spacing="50">
+            <VerticalStackLayout>
+                <StackLayout BindingContext="{Binding MedEdit}" Spacing="30">
+                    <Label Text="Id" />
+                    <Label Text="Name" />
+                    <Label Text="Price" />
+                    <Label Text="Medicine Type" />
+                    <Label Text="Producer" />
+                </StackLayout>
+
+            </VerticalStackLayout>
+            <VerticalStackLayout WidthRequest="600">
+                <StackLayout BindingContext="{Binding MedEdit}">
+                    <Entry Placeholder="Id" Text="{Binding ID}" />
+                    <Entry Placeholder="Name" Text="{Binding Name}" />
+                    <Entry Placeholder="Price" Text="{Binding Price}" />
+                    <Picker ItemsSource="{Binding Source={viewmodel:MedicineCollectionViewModel}, Path=MedicineTypeList}"
+                            SelectedIndex="{Binding MedType, Converter={StaticResource Myconverter}, ConverterParameter={x:Type interfaces:MedicineType}, Mode=TwoWay}"></Picker>
+                    <Picker Title="Wybierz producenta"
+                            ItemsSource="{Binding Source={viewmodel:ProducerCollectionViewModel}, Path=Producers}" ItemDisplayBinding="{Binding Name}"
+                            SelectedItem="{Binding Producer}" />
+                </StackLayout>
+            </VerticalStackLayout>
+                
+        </HorizontalStackLayout>
+        
+        
+        <StackLayout Orientation="Horizontal" Padding="10, 5, 10, 5" Spacing="20" HorizontalOptions="Center">
+            <Button Text="Zapisz" Command="{Binding SaveMedicineCommand}" />
+            <Button Text="Anuluj" Command="{Binding CancelCommand}" />
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

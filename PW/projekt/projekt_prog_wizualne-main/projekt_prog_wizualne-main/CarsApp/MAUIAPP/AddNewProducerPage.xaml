@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUIAPP.AddNewProducerPage"
+             xmlns:viewmodel="clr-namespace:MAUIAPP.ViewModels"
+             xmlns:interfaces="clr-namespace:CarsApp.Core;assembly=CarsApp.Core"
+             Title="Edit Medicine">
+    <StackLayout Padding="20, 20, 20, 20">
+        <Label Text="Tryb dodawania dokumentu" HeightRequest="80" Padding="0" FontSize="Large" HorizontalTextAlignment="Center"/>
+        <HorizontalStackLayout Padding="0, 0, 0, 0" Spacing="50">
+            <VerticalStackLayout>
+                <StackLayout BindingContext="{Binding ProdEdit}" Spacing="30">
+                    <Label Text="Id" />
+                    <Label Text="Name" />
+                    <Label Text="Address" />
+                </StackLayout>
+            </VerticalStackLayout>
+            <VerticalStackLayout WidthRequest="600">
+                <StackLayout BindingContext="{Binding ProdEdit}">
+                    <Entry Placeholder="Id" Text="{Binding ID}" />
+                    <Entry Placeholder="Name" Text="{Binding Name}" />
+                    <Entry Placeholder="Address" Text="{Binding Address}" />
+                </StackLayout>
+            </VerticalStackLayout>
+        </HorizontalStackLayout>
+        <StackLayout Orientation="Horizontal" Padding="10, 5, 10, 5" Spacing="20" HorizontalOptions="Center">
+            <Button Text="Zapisz" Command="{Binding SaveProducerCommand}" />
+            <Button Text="Anuluj" Command="{Binding CancelCommand}" />
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

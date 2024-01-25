@@ -1,4 +1,5 @@
-﻿using ContainersApp.Interfaces;
+﻿using Microsoft.Extensions.Configuration;
+using ContainersApp.Interfaces;
 
 namespace ContainersApp.DAOMock1
 {
@@ -11,35 +12,71 @@ namespace ContainersApp.DAOMock1
         {
             producers = new List<IProducer>()
             {
-                new BO.Producer() {ID = 1, Name = "Producer1"},
-                new BO.Producer() {ID = 2, Name = "Producer2"}
+                new BO.Producer() {Id = 1, Name = "Producer1"},
+                new BO.Producer() {Id = 2, Name = "Producer2"}
             };
 
             containers = new List<IContainer>()
             {
-                new BO.Container() {ID = 1, Producer = producers[0], Name = "Container1", ProductionYear = 2020, Type = Core.ContainerType.BundedStorage },
-                new BO.Container() {ID = 2, Producer = producers[0], Name = "Container2", ProductionYear = 2022, Type = Core.ContainerType.OpenTop },
-                new BO.Container() {ID = 3, Producer = producers[1], Name = "Container3", ProductionYear = 2023, Type = Core.ContainerType.Classic }
+                new BO.Container() {Id = 1, Producer = producers[0], Name = "Container1", ProductionYear = 2020, Type = Core.ContainerType.BundedStorage },
+                new BO.Container() {Id = 2, Producer = producers[0], Name = "Container2", ProductionYear = 2022, Type = Core.ContainerType.OpenTop },
+                new BO.Container() {Id = 3, Producer = producers[1], Name = "Container3", ProductionYear = 2023, Type = Core.ContainerType.Classic }
             };
         }
-        public IContainer CreateNewContainer()
+
+        public void AddContainer(IContainer container)
         {
-            return new BO.Container();
+            throw new NotImplementedException();
         }
 
-        public IProducer CreateNewProducer()
+        public void AddProducer(IProducer producer)
         {
-            return new BO.Producer();
+            throw new NotImplementedException();
+        }
+
+        public IContainer CreateContainer(IContainer container)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteContainer(int containerID)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteProducer(int producerID)
+        {
+            throw new NotImplementedException();
         }
 
         public IEnumerable<IContainer> GetAllContainers()
         {
-            return containers;
+            throw new NotImplementedException();
         }
 
         public IEnumerable<IProducer> GetAllProducers()
         {
-            return producers;
+            throw new NotImplementedException();
+        }
+
+        public IContainer? GetContainer(int containerID)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IProducer? GetProducer(int producerID)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateContainer(IContainer container)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateProducer(IProducer producer)
+        {
+            throw new NotImplementedException();
         }
     }
 }

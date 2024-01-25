@@ -64,6 +64,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\ContainersApp.BLC\ContainersApp.BLC.csproj" />
+	  <ProjectReference Include="..\ContainersApp.Core\ContainersApp.Core.csproj" />
 	  <ProjectReference Include="..\ContainersApp.Interfaces\ContainersApp.Interfaces.csproj" />
 	</ItemGroup>
 

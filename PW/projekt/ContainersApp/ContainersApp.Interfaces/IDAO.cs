@@ -9,9 +9,16 @@ namespace ContainersApp.Interfaces
     // data access object
     public interface IDAO
     {
-        IEnumerable<IProducer> GetAllProducers();
         IEnumerable<IContainer> GetAllContainers();
-        IProducer CreateNewProducer();
-        IContainer CreateNewContainer();
+        void AddContainer(IContainer container);
+        IContainer? GetContainer(int containerID);
+        void UpdateContainer(IContainer container);
+		void DeleteContainer(int containerID);
+
+        IEnumerable<IProducer> GetAllProducers();
+		void AddProducer(IProducer producer);
+        IProducer? GetProducer(int producerID);
+		void UpdateProducer(IProducer producer);
+		void DeleteProducer(int producerID);
     }
 }

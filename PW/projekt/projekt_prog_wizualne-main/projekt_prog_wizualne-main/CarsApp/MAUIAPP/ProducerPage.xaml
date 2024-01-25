@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:MAUIAPP.ViewModels"
+             x:Class="MAUIAPP.ProducerPage"
+             Title="ProducerPage">
+    <StackLayout>
+        <StackLayout Orientation="Horizontal" Padding="10, 5, 10, 5">
+            <Button Text="Dodaj nowego producenta" Command="{Binding CreateNewProducerCommand}" />
+        </StackLayout>
+
+        <ListView ItemsSource="{Binding Producers}" SeparatorVisibility="Default" ItemSelected="OnSelectedProducer">
+            <ListView.Header>
+                <Grid Padding="10" ColumnSpacing="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="ID" Grid.Column="0" HorizontalOptions="Start" FontAttributes="Bold"/>
+                    <Label Text="Name" Grid.Column="1" HorizontalOptions="Start" FontAttributes="Bold"/>
+                    <Label Text="Address" Grid.Column="2" HorizontalOptions="Start" FontAttributes="Bold"/>
+                </Grid>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="10" ColumnSpacing="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="200"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding ID}" Grid.Column="0" HorizontalOptions="Start"/>
+                            <Label Text="{Binding Name}" Grid.Column="1" HorizontalOptions="Start"/>
+                            <Label Text="{Binding Address}" Grid.Column="2" HorizontalOptions="Start"/>
+                        </Grid>
+                    </ViewCell>
+
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

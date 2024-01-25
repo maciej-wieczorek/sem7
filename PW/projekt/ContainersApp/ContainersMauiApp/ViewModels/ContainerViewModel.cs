@@ -12,19 +12,19 @@ namespace ContainersAppMAUI.ViewModels
 
         [ObservableProperty]
         [NotifyDataErrorInfo]
-        [Required(ErrorMessage = "Id musi byæ nadane")]
+        [Required(ErrorMessage = "Id musi byï¿½ nadane")]
         private int id;
 
         [ObservableProperty]
         [NotifyDataErrorInfo]
-        [MinLength(2, ErrorMessage = "Nazwa musi mieæ przynkfj oaih21")]
+        [MinLength(2, ErrorMessage = "Nazwa musi mieï¿½ przynkfj oaih21")]
         private string? name;
 
         [ObservableProperty]
         [NotifyDataErrorInfo]
-        [Required(ErrorMessage = "Rok produkcji musi byæ ")]
+        [Required(ErrorMessage = "Rok produkcji musi byï¿½ ")]
         [Range(1900, 2024)]
-        private int prodYear;
+        private int productionYear;
 
         [ObservableProperty]
         private IProducer producer;
@@ -35,9 +35,9 @@ namespace ContainersAppMAUI.ViewModels
 
         public ContainerViewModel(IContainer container)
         {
-            id = container.ID;
+            id = container.Id;
             name = container.Name;
-            prodYear = container.ProductionYear;
+            productionYear = container.ProductionYear;
             producer = container.Producer;
             type = container.Type;
 
@@ -115,7 +115,7 @@ namespace ContainersAppMAUI.ViewModels
 
 
 
-            return new ValidationResult($"nowa wartoœc jest mniejsza niz ta {validationContext.MemberName} vs {PropertyName} ");
+            return new ValidationResult($"nowa wartoï¿½c jest mniejsza niz ta {validationContext.MemberName} vs {PropertyName} ");
         }
     }
 

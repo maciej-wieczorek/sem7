@@ -1,3 +1,6 @@
+using ContainersApp.BLC;
+using System.Reflection.Metadata;
+
 namespace ContainersWebApp
 {
     public class Program
@@ -8,6 +11,7 @@ namespace ContainersWebApp
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddSingleton<BLC>();
 
             var app = builder.Build();
 

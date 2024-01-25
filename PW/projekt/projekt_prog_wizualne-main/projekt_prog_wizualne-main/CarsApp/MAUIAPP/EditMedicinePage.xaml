@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUIAPP.EditMedicinePage"
+             xmlns:viewmodel="clr-namespace:MAUIAPP.ViewModels"
+             Title="Edit Medicine">
+    <StackLayout Padding="20, 20, 20, 20">
+        <Label Text="Tryb edycji dokumentu" HeightRequest="80" Padding="0" FontSize="Large" HorizontalTextAlignment="Center"/>
+        <HorizontalStackLayout Padding="0, 0, 0, 0" Spacing="50">
+            <VerticalStackLayout>
+                <StackLayout BindingContext="{Binding MedEdit}" Spacing="30">
+                    <Label Text="Id" />
+                    <Label Text="Name" />
+                    <Label Text="Price" />
+                    <Label Text="Medicine Type" />
+                    <Label Text="Producer" />
+                </StackLayout>
+
+            </VerticalStackLayout>
+            <VerticalStackLayout WidthRequest="600">
+                <StackLayout BindingContext="{Binding MedEdit}">
+                    <Entry Placeholder="Id" Text="{Binding ID}" />
+                    <Entry Placeholder="Name" Text="{Binding Name}" />
+                    <Entry Placeholder="Price" Text="{Binding Price}" />
+                    <Picker x:Name="picker"
+                            Title="Wybierz rodzaj leku" SelectedItem="{Binding MedType}">
+                      <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                          <x:String>Medicine</x:String>
+                          <x:String>Dietary_Supplement</x:String>
+                          <x:String>Medical_Device</x:String>
+                        </x:Array>
+                      </Picker.ItemsSource>
+                    </Picker>
+                    <Picker Title="Wybierz producenta"
+                            ItemsSource="{Binding Source={viewmodel:ProducerCollectionViewModel}, Path=Producers}" ItemDisplayBinding="{Binding Name}"
+                            SelectedItem="{Binding Producer}"/>
+                </StackLayout>
+            </VerticalStackLayout>
+                
+        </HorizontalStackLayout>
+        
+        
+        <StackLayout Orientation="Horizontal" Padding="10, 5, 10, 5" Spacing="20" HorizontalOptions="Center">
+            <Button Text="Zapisz" Command="{Binding UpdateMedicineCommand}" />
+            <Button Text="Anuluj" Command="{Binding CancelCommand}" />
+            <Button Text="Usuń" Command="{Binding DeleteMedicineCommand}" />
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CarsApp.Core\CarsApp.Core.csproj" />
+    <ProjectReference Include="..\CarsApp.Interfaces\CarsApp.Interfaces.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="BO\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="BO\" />
+  </ItemGroup>
+</Project>

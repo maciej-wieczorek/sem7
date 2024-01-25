@@ -10,7 +10,7 @@ namespace ContainersApp.DAOMock1.BO
 {
     public class Container : IContainer
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public IProducer Producer { get; set; }
         public int ProductionYear { get; set; }
