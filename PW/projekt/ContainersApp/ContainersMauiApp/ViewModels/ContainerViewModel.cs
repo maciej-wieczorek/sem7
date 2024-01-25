@@ -1,26 +1,20 @@
-using Containers.Interfaces;
+using ContainersApp.Core;
+using ContainersApp.Interfaces;
 using CommunityToolkit.Mvvm.ComponentModel;
-using HomeKit;
-using Intents;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using ContainersApp.Interfaces;
+using IContainer = ContainersApp.Interfaces.IContainer;
 
 namespace ContainersAppMAUI.ViewModels
 {
-    public partial class ContainerViewModel : ObservableValidator, ContainersApp.Interfaces.IContainer
+    public partial class ContainerViewModel : ObservableValidator, IContainer
     {
 
         [ObservableProperty]
         [NotifyDataErrorInfo]
         [Required(ErrorMessage = "Id musi byæ nadane")]
         private int id;
+
         [ObservableProperty]
         [NotifyDataErrorInfo]
         [MinLength(2, ErrorMessage = "Nazwa musi mieæ przynkfj oaih21")]
@@ -31,35 +25,27 @@ namespace ContainersAppMAUI.ViewModels
         [Required(ErrorMessage = "Rok produkcji musi byæ ")]
         [Range(1900, 2024)]
         private int prodYear;
-        [ObservableProperty]
-        private int producerId;
 
         [ObservableProperty]
-        [NotifyDataErrorInfo]
-        [GreatherThan(nameof(Engine), ErrorMessage = "coœ tam dzia³a")]
-        private int mileage;
+        private IProducer producer;
 
         [ObservableProperty]
-        private int engine;
-        [ObservableProperty]
-        private TransmissionType transmission;
+        private ContainerType type;
 
 
         public ContainerViewModel(IContainer container)
         {
-            id = container.Id;
+            id = container.ID;
             name = container.Name;
-            prodYear = container.ProdYear;
-            producerId = container.ProducerId;
-            mileage = container.Mileage;
-            engine = container.Engine;
-            transmission = container.Transmission;
+            prodYear = container.ProductionYear;
+            producer = container.Producer;
+            type = container.Type;
 
             ErrorsChanged += CVM_ErrorsChanged;
             PropertyChanged += CVM_PropertyChanged;
         }
 
-        ~CarViewModel()
+        ~ContainerViewModel()
         {
             ErrorsChanged -= CVM_ErrorsChanged;
             PropertyChanged -= CVM_PropertyChanged;
@@ -70,13 +56,13 @@ namespace ContainersAppMAUI.ViewModels
             throw new NotImplementedException();
         }
 
-        public IReadOnlyCollection<string> AllTransmissions { get; } = Enum.GetNames(typeof(TransmissionType));
+        public IReadOnlyCollection<string> AllTransmissions { get; } = Enum.GetNames(typeof(ContainerType));
 
         public string Errors => string.Join(Environment.NewLine, from ValidationResult e in GetErrors(null) select e.ErrorMessage);
 
         public ContainerViewModel()
         {
-            Transmission = TransmissionType.Manual;
+            type = ContainerType.Classic;
         }
 
         private void CVM_PropertyChanged(object sender, PropertyChangedEventArgs e)
