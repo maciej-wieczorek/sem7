@@ -1,19 +1,18 @@
 ﻿using ContainersApp.BLC;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace ContainersWebApp.Controllers
 {
-    public class ContainersController : Controller
+    public class ProducersController : Controller
     {
         private readonly BLC _blc;
-        public ContainersController(BLC blc)
+        public ProducersController(BLC blc)
         {
             _blc = blc;
         }
         public IActionResult Index()
         {
-            return View(_blc.GetAllContainers());
+            return View(_blc.GetAllProducers());
         }
 
         public IActionResult Details(int? id)
@@ -23,33 +22,30 @@ namespace ContainersWebApp.Controllers
                 return NotFound();
             }
 
-            var container = _blc.GetContainer((int)id);
-            if (container == null)
+            var producer = _blc.GetProducer((int)id);
+            if (producer == null)
             {
                 return NotFound();
             }
 
-            return View(container);
+            return View(producer);
         }
 
         public IActionResult Create()
         {
-            ViewBag.Producers = new SelectList(_blc.GetAllProducers(), "Id", "Name");
-
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create([Bind("Name,ProductionYear,ProducerId,Type")] Models.Container container)
+        public IActionResult Create([Bind("Name,Address")] Models.Producer producer)
         {
             if (ModelState.IsValid)
             {
-                container.Producer = _blc.GetProducer(container.ProducerId);
-                _blc.AddContainer(container);
+                _blc.AddProducer(producer);
                 return RedirectToAction(nameof(Index));
             }
-            return View(container);
+            return View(producer);
         }
 
         public IActionResult Edit(int? id)
@@ -59,43 +55,38 @@ namespace ContainersWebApp.Controllers
                 return NotFound();
             }
 
-            var container = _blc.GetContainer((int)id);
-            if (container == null)
+            var producer = _blc.GetProducer((int)id);
+            if (producer == null)
             {
                 return NotFound();
             }
 
-            ViewBag.Producers = new SelectList(_blc.GetAllProducers(), "Id", "Name");
-
-            Models.Container containerModel = new Models.Container()
+            Models.Producer producerModel = new Models.Producer()
             {
-                Id = container.Id,
-                Name = container.Name,
-                Producer = container.Producer,
-                ProducerId = container.Producer.Id,
-                ProductionYear = container.ProductionYear,
-                Type = container.Type
+                Id = producer.Id,
+                Name = producer.Name,
+                Address = producer.Address
             };
 
-            return View(containerModel);
+            return View(producerModel);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(int id, [Bind("Id,Name,ProductionYear,ProducerId,Type")] Models.Container container)
+        public IActionResult Edit(int id, [Bind("Id,Name,Address")] Models.Producer producer)
         {
-            if (id != container.Id)
+            if (id != producer.Id)
             {
                 return NotFound();
             }
 
             if (ModelState.IsValid)
             {
-                _blc.UpdateContainer(container);
+                _blc.UpdateProducer(producer);
                 return RedirectToAction(nameof(Index));
             }
 
-            return View(container);
+            return View(producer);
         }
 
         public IActionResult Delete(int? id)
@@ -105,20 +96,20 @@ namespace ContainersWebApp.Controllers
                 return NotFound();
             }
 
-            var container = _blc.GetContainer((int)id);
-            if (container == null)
+            var producer = _blc.GetProducer((int)id);
+            if (producer == null)
             {
                 return NotFound();
             }
 
-            return View(container);
+            return View(producer);
         }
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(int id)
         {
-            _blc.DeleteContainer(id);
+            _blc.DeleteProducer(id);
             return RedirectToAction(nameof(Index));
         }
     }

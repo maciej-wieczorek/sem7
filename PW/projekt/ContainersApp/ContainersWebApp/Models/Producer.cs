@@ -1,8 +1,10 @@
-﻿namespace ContainersWebApp.Models
+﻿using ContainersApp.Interfaces;
+
+namespace ContainersWebApp.Models
 {
-    public class Producer
+    public class Producer : IProducer
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Address { get; set; }
     }

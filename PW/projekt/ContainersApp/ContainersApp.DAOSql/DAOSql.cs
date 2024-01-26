@@ -1,4 +1,5 @@
-﻿using ContainersApp.Interfaces;
+﻿using Microsoft.EntityFrameworkCore;
+using ContainersApp.Interfaces;
 
 namespace ContainersApp.DAOSql
 {
@@ -12,7 +13,7 @@ namespace ContainersApp.DAOSql
         }
         public IEnumerable<IContainer> GetAllContainers()
         {
-            return _dbContext.containers.ToList();
+            return _dbContext.containers.Include(container => container.Producer).ToList();
         }
         public void AddContainer(IContainer container)
         {
@@ -31,7 +32,7 @@ namespace ContainersApp.DAOSql
         }
         public IContainer? GetContainer(int containerID)
         {
-            return _dbContext.containers.FirstOrDefault(c => c.Id == containerID);
+            return _dbContext.containers.Include(container => container.Producer).FirstOrDefault(c => c.Id == containerID);
         }
 
         public void UpdateContainer(IContainer container)
@@ -60,7 +61,15 @@ namespace ContainersApp.DAOSql
         }
         public void AddProducer(IProducer producer)
         {
-            _dbContext.producers.Add((BO.Producer)producer);
+            var newId = (_dbContext.producers.Max(p => (int?)p.Id) ?? 0) + 1;
+            var newProducer = new BO.Producer
+            {
+                Id = newId,
+                Name = producer.Name,
+                Address = producer.Address
+            };
+
+            _dbContext.producers.Add(newProducer);
             _dbContext.SaveChanges();
         }
         public IProducer? GetProducer(int producerID)
