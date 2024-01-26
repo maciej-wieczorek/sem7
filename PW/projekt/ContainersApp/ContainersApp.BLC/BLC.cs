@@ -9,9 +9,9 @@ namespace ContainersApp.BLC
     {
         private IDAO dao;
 
-        public BLC(IConfiguration confguration)
+        public BLC(string library)
         {
-            Assembly assembly = Assembly.UnsafeLoadFrom(confguration.GetSection("DAOLibrary")["Path"]);
+            Assembly assembly = Assembly.UnsafeLoadFrom(library);
             Type typeToCreate = null;
 
             foreach (Type type in assembly.GetTypes())

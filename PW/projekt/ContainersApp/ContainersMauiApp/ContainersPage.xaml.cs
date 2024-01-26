@@ -1,11 +1,12 @@
+using ContainersMauiApp.ViewModels;
 
 namespace ContainersMauiApp;
 
 public partial class ContainersPage : ContentPage
 {
-	public ContainersPage()
+	public ContainersPage(ContainerCollectionViewModel viewModel)
 	{
 		InitializeComponent();
-		//BindingContext = ViewModel;
+		BindingContext = viewModel;
 	}
 }

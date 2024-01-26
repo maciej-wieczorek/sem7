@@ -1,2 +1,2 @@
 Add-Migration initial -Project ContainersApp.DAOSql
-Update-Database
+Update-Database -Project ContainersApp.DAOSql

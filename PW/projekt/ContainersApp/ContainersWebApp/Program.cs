@@ -1,5 +1,4 @@
 using ContainersApp.BLC;
-using System.Reflection.Metadata;
 
 namespace ContainersWebApp
 {
@@ -11,7 +10,7 @@ namespace ContainersWebApp
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-            builder.Services.AddSingleton<BLC>();
+            builder.Services.AddSingleton(provider => new BLC(System.Configuration.ConfigurationManager.AppSettings["DBLibrary"]));
 
             var app = builder.Build();
 

@@ -5,7 +5,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using IContainer = ContainersApp.Interfaces.IContainer;
 
-namespace ContainersAppMAUI.ViewModels
+namespace ContainersMauiApp.ViewModels
 {
     public partial class ContainerViewModel : ObservableValidator, IContainer
     {
@@ -51,7 +51,7 @@ namespace ContainersAppMAUI.ViewModels
             PropertyChanged -= CVM_PropertyChanged;
         }
 
-        private void CarViewModel_PropertyChanged(object? sender, PropertyChangedEventArgs e)
+        private void ContainerViewModel_PropertyChanged(object? sender, PropertyChangedEventArgs e)
         {
             throw new NotImplementedException();
         }

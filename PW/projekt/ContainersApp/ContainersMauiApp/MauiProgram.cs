@@ -1,4 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
+using ContainersApp.BLC;
+using ContainersMauiApp.ViewModels;
+using System.Configuration;
 
 namespace ContainersMauiApp
 {
@@ -14,6 +17,10 @@ namespace ContainersMauiApp
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
+
+            builder.Services.AddSingleton(provider => new BLC(ConfigurationManager.AppSettings["DBLibrary"]));
+            builder.Services.AddSingleton<ContainerCollectionViewModel>();
+            builder.Services.AddSingleton<ContainersPage>();
 
 #if DEBUG
     		builder.Logging.AddDebug();

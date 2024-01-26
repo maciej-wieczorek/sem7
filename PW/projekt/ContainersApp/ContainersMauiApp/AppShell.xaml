@@ -9,13 +9,13 @@
 
 	<FlyoutItem>
 		<ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
-
-		<ShellContent
         Title="Containers list"
         ContentTemplate="{DataTemplate local:ContainersPage}"
         Route="ContainersPage" />
+
+		<ShellContent
+        Title="Producers list"
+        ContentTemplate="{DataTemplate local:ProducersPage}"
+        Route="ProducersPage" />
 	</FlyoutItem>
 </Shell>
