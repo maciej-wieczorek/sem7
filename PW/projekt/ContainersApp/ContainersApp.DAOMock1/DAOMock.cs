@@ -24,59 +24,81 @@ namespace ContainersApp.DAOMock1
             };
         }
 
-        public void AddContainer(IContainer container)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void AddProducer(IProducer producer)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IContainer CreateContainer(IContainer container)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DeleteContainer(int containerID)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DeleteProducer(int producerID)
-        {
-            throw new NotImplementedException();
-        }
-
         public IEnumerable<IContainer> GetAllContainers()
         {
-            throw new NotImplementedException();
+            return containers;
         }
-
-        public IEnumerable<IProducer> GetAllProducers()
+        public void AddContainer(IContainer container)
         {
-            throw new NotImplementedException();
+            var newId = containers.Max(obj => obj.Id) + 1;
+            var newContainer = new BO.Container
+            {
+                Id = newId,
+                Name = container.Name,
+                Producer = (BO.Producer)container.Producer,
+                ProductionYear = container.ProductionYear,
+                Type = container.Type,
+            };
+            containers.Add(newContainer);
         }
-
         public IContainer? GetContainer(int containerID)
         {
-            throw new NotImplementedException();
+            return containers.FirstOrDefault(obj => obj.Id == containerID);
         }
-
-        public IProducer? GetProducer(int producerID)
-        {
-            throw new NotImplementedException();
-        }
-
         public void UpdateContainer(IContainer container)
         {
-            throw new NotImplementedException();
+            var existingContainer = GetContainer(container.Id);
+            if (existingContainer != null)
+            {
+                existingContainer.Name = container.Name;
+                existingContainer.Producer = container.Producer;
+                existingContainer.ProductionYear = container.ProductionYear;
+                existingContainer.Type = container.Type;
+            }
         }
-
+        public void DeleteContainer(int containerID)
+        {
+            var container = GetContainer(containerID);
+            if (container != null)
+            {
+                containers.Remove(container);
+            }
+        }
+        public IEnumerable<IProducer> GetAllProducers()
+        {
+            return producers;
+        }
+        public void AddProducer(IProducer producer)
+        {
+            var newId = producers.Max(obj => obj.Id) + 1;
+            var newProducer = new BO.Producer
+            {
+                Id = newId,
+                Name = producer.Name,
+                Address = producer.Address
+            };
+            producers.Add(newProducer);
+        }
+        public IProducer? GetProducer(int producerID)
+        {
+            return producers.FirstOrDefault(obj => obj.Id == producerID);
+        }
         public void UpdateProducer(IProducer producer)
         {
-            throw new NotImplementedException();
+            var existingProducer = GetProducer(producer.Id);
+            if (existingProducer != null)
+            {
+                existingProducer.Name = producer.Name;
+                existingProducer.Address = producer.Address;
+            }
+        }
+        public void DeleteProducer(int producerID)
+        {
+            var producer = GetProducer(producerID);
+            if (producer != null)
+            {
+                producers.Remove(producer);
+            }
         }
     }
 }

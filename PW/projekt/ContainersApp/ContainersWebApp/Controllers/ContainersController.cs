@@ -91,6 +91,7 @@ namespace ContainersWebApp.Controllers
 
             if (ModelState.IsValid)
             {
+                container.Producer = _blc.GetProducer(container.ProducerId);
                 _blc.UpdateContainer(container);
                 return RedirectToAction(nameof(Index));
             }
