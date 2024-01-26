@@ -10,6 +10,7 @@ namespace ContainersApp.Interfaces
     public interface IDAO
     {
         IEnumerable<IContainer> GetAllContainers();
+        IEnumerable<IContainer> GetContainersByName(string name);
         void AddContainer(IContainer container);
         IContainer? GetContainer(int containerID);
         void UpdateContainer(IContainer container);

@@ -28,6 +28,7 @@ namespace ContainersApp.BLC
 
 
         public IEnumerable<IContainer> GetAllContainers() => dao.GetAllContainers();
+        public IEnumerable<IContainer> GetContainersByName(string name) => dao.GetContainersByName(name);
         public void AddContainer(IContainer container) => dao.AddContainer(container);
         public IContainer? GetContainer(int containerID) => dao.GetContainer(containerID);
         public void UpdateContainer(IContainer container) => dao.UpdateContainer(container);

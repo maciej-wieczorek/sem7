@@ -11,8 +11,12 @@ namespace ContainersWebApp.Controllers
         {
             _blc = blc;
         }
-        public IActionResult Index()
+        public IActionResult Index(string? searchString)
         {
+            if (searchString != null)
+            {
+                return View(_blc.GetContainersByName(searchString));
+            }
             return View(_blc.GetAllContainers());
         }
 

@@ -1,5 +1,4 @@
-﻿using Microsoft.Extensions.Configuration;
-using ContainersApp.Interfaces;
+﻿using ContainersApp.Interfaces;
 
 namespace ContainersApp.DAOMock1
 {
@@ -27,6 +26,10 @@ namespace ContainersApp.DAOMock1
         public IEnumerable<IContainer> GetAllContainers()
         {
             return containers;
+        }
+        public IEnumerable<IContainer> GetContainersByName(string name)
+        {
+            return containers.Where(container => container.Name == name).ToList();
         }
         public void AddContainer(IContainer container)
         {

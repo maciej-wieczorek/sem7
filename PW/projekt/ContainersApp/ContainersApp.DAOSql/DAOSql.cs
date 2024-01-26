@@ -15,6 +15,11 @@ namespace ContainersApp.DAOSql
         {
             return _dbContext.containers.Include(container => container.Producer).ToList();
         }
+        public IEnumerable<IContainer> GetContainersByName(string name)
+        {
+            return _dbContext.containers.Include(container => container.Producer)
+                .Where(container => container.Name == name).ToList();
+        }
         public void AddContainer(IContainer container)
         {
             var newId = (_dbContext.containers.Max(c => (int?)c.Id) ?? 0) + 1;
