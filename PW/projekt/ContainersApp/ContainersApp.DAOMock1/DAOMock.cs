@@ -97,6 +97,7 @@ namespace ContainersApp.DAOMock1
             var producer = GetProducer(producerID);
             if (producer != null)
             {
+                containers.RemoveAll(c => c.Producer == producer);
                 producers.Remove(producer);
             }
         }
