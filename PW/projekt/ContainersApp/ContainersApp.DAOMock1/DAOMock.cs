@@ -11,15 +11,15 @@ namespace ContainersApp.DAOMock1
         {
             producers = new List<IProducer>()
             {
-                new BO.Producer() {Id = 1, Name = "Producer1"},
-                new BO.Producer() {Id = 2, Name = "Producer2"}
+                new BO.Producer() {Id = 1, Name = "Maersk Container Industry (MCI)", Address = "Tinglev Bjerndrupvej 47 6360 Tinglev Denmark"},
+                new BO.Producer() {Id = 2, Name = "Triton International Limited", Address = "1225 North Loop West Suite 850 Houston, Texas 77008 USA"}
             };
 
             containers = new List<IContainer>()
             {
-                new BO.Container() {Id = 1, Producer = producers[0], Name = "Container1", ProductionYear = 2020, Type = Core.ContainerType.BundedStorage },
-                new BO.Container() {Id = 2, Producer = producers[0], Name = "Container2", ProductionYear = 2022, Type = Core.ContainerType.OpenTop },
-                new BO.Container() {Id = 3, Producer = producers[1], Name = "Container3", ProductionYear = 2023, Type = Core.ContainerType.Classic }
+                new BO.Container() {Id = 1, Producer = producers[0], Name = "Star Cool and Star Triple-E", ProductionYear = 2020, Type = Core.ContainerType.BundedStorage },
+                new BO.Container() {Id = 2, Producer = producers[1], Name = "Triton Dry Van", ProductionYear = 2022, Type = Core.ContainerType.OpenTop },
+                new BO.Container() {Id = 3, Producer = producers[1], Name = "Triton Reefers", ProductionYear = 2023, Type = Core.ContainerType.Classic }
             };
         }
 
