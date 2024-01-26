@@ -21,6 +21,8 @@ namespace ContainersMauiApp
             builder.Services.AddSingleton(provider => new BLC(ConfigurationManager.AppSettings["DBLibrary"]));
             builder.Services.AddSingleton<ContainerCollectionViewModel>();
             builder.Services.AddSingleton<ContainersPage>();
+            builder.Services.AddSingleton<ProducerCollectionViewModel>();
+            builder.Services.AddSingleton<ProducersPage>();
 
 #if DEBUG
     		builder.Logging.AddDebug();
