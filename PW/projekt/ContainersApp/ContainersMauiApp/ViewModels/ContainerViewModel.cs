@@ -12,17 +12,17 @@ namespace ContainersAppMAUI.ViewModels
 
         [ObservableProperty]
         [NotifyDataErrorInfo]
-        [Required(ErrorMessage = "Id musi by� nadane")]
+        [Required]
         private int id;
 
         [ObservableProperty]
         [NotifyDataErrorInfo]
-        [MinLength(2, ErrorMessage = "Nazwa musi mie� przynkfj oaih21")]
+        [MinLength(2)]
         private string? name;
 
         [ObservableProperty]
         [NotifyDataErrorInfo]
-        [Required(ErrorMessage = "Rok produkcji musi by� ")]
+        [Required]
         [Range(1900, 2024)]
         private int productionYear;
 
@@ -115,7 +115,7 @@ namespace ContainersAppMAUI.ViewModels
 
 
 
-            return new ValidationResult($"nowa warto�c jest mniejsza niz ta {validationContext.MemberName} vs {PropertyName} ");
+            return new ValidationResult($"nowa wartosc jest mniejsza niz ta {validationContext.MemberName} vs {PropertyName} ");
         }
     }
 
