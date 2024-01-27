@@ -17,5 +17,10 @@
         Title="Producers list"
         ContentTemplate="{DataTemplate local:ProducersPage}"
         Route="ProducersPage" />
+
+		<ShellContent
+        Title="Add Container"
+        ContentTemplate="{DataTemplate local:ContainerAddPage}"
+        Route="ContaienrAddPage" />
 	</FlyoutItem>
 </Shell>

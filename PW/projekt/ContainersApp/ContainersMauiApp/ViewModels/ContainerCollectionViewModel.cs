@@ -28,7 +28,7 @@ namespace ContainersMauiApp.ViewModels
             CancelCommand = new Command(
                 execute: () =>
                 {
-                    ContainerEdit.PropertyChanged -= OnPersonEditPropertyChanged;
+                    ContainerEdit.PropertyChanged -= OnContainerEditPropertyChanged;
                     ContainerEdit = null;
                     IsEditing = false;
                     RefreshCanExecute();
@@ -44,26 +44,40 @@ namespace ContainersMauiApp.ViewModels
 
         [ObservableProperty]
         private bool isEditing;
-
-        [RelayCommand(CanExecute = nameof(CanCreateNewContainer))]
-        private void CreateNewContainer()
-        {
-            ContainerEdit = new ContainerViewModel();
-            ContainerEdit.PropertyChanged += OnPersonEditPropertyChanged;
-            IsEditing = true;
-            RefreshCanExecute();
-        }
-
         private bool CanCreateNewContainer()
         {
             return !IsEditing;
         }
 
+        [RelayCommand(CanExecute = nameof(CanCreateNewContainer))]
+        private void CreateNewContainer()
+        {
+            ContainerEdit = new ContainerViewModel();
+            _blc.AddContainer(containerEdit);
+            Containers.Add(containerEdit);
+            ContainerEdit.PropertyChanged += OnContainerEditPropertyChanged;
+            IsEditing = true;
+            RefreshCanExecute();
+            Shell.Current.GoToAsync(nameof(ContainerAddPage));
+        }
+
         [RelayCommand(CanExecute = nameof(CanEditContainerBeSaved))]
         private void SaveContainer()
         {
+            _blc.AddContainer(containerEdit);
             Containers.Add(containerEdit);
-            ContainerEdit.PropertyChanged -= OnPersonEditPropertyChanged;
+            ContainerEdit.PropertyChanged -= OnContainerEditPropertyChanged;
+            ContainerEdit = null;
+            IsEditing = false;
+            RefreshCanExecute();
+        }
+
+        [RelayCommand]
+        private void DeleteContainer()
+        {
+            _blc.DeleteContainer(containerEdit.Id);
+            Containers.Remove(containerEdit);
+            ContainerEdit.PropertyChanged -= OnContainerEditPropertyChanged;
             ContainerEdit = null;
             IsEditing = false;
             RefreshCanExecute();
@@ -77,6 +91,18 @@ namespace ContainersMauiApp.ViewModels
                    ContainerEdit.ProductionYear > 1900;
         }
 
+
+        public void OnSelectedContainer(SelectedItemChangedEventArgs args)
+		{
+			ContainerEdit = new ContainerViewModel(args.SelectedItem as ContainerViewModel);
+            ContainerEdit.PropertyChanged += OnContainerEditPropertyChanged;
+			IsEditing = true;
+			
+			RefreshCanExecute();
+			Shell.Current.GoToAsync(nameof(ContainerEditPage));
+		}
+
+
         private void RefreshCanExecute()
         {
             //(CreateNewContainerCommand as Command)?.ChangeCanExecute();
@@ -86,7 +112,7 @@ namespace ContainersMauiApp.ViewModels
             (CancelCommand as Command)?.ChangeCanExecute();
         }
 
-        void OnPersonEditPropertyChanged(object sender, PropertyChangedEventArgs args)
+        void OnContainerEditPropertyChanged(object sender, PropertyChangedEventArgs args)
         {
             SaveContainerCommand.NotifyCanExecuteChanged();
         }

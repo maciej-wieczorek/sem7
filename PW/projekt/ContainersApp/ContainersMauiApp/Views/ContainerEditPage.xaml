@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ContainersMauiApp.ContainerEditPage"
+             Title="ContainerEditPage">
+    <VerticalStackLayout>
+		<Grid Margin="0, 30" RowDefinitions="Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="Auto,Auto" BindingContext="{Binding ContainerEdit}">
+
+			<Label Grid.Row="1" Grid.Column="0" Text="Name"/>
+			<Entry Grid.Row="1" Grid.Column="1" Text="{Binding Name}"/>
+
+			<Label Grid.Row="2" Grid.Column="0" Text="Type"/>
+			<Entry Grid.Row="2" Grid.Column="1" Text="{Binding Type}"/>
+
+			<Label Grid.Row="3" Grid.Column="0" Text="Producer"/>
+
+
+			<Label Grid.Row="4" Grid.Column="0" Text="Production Year" ToolTipProperties.Text="{Binding Errors}"/>
+			<Entry Grid.Row="4" Grid.Column="1" Text="{Binding ProductionYear}"/>
+
+		</Grid>
+
+		<HorizontalStackLayout>
+			<Button Text="Save" Command="{Binding SaveContainerCommand}"></Button>
+			<Button Text="Cancel" Command="{Binding CancelCommand}"></Button>
+			<Button Text="Cancel" Command="{Binding DeleteContainerCommand}"></Button>
+		</HorizontalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>
