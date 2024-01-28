@@ -2,22 +2,32 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ContainersMauiApp.ContainerAddPage"
+			 xmlns:viewmodel="clr-namespace:ContainersMauiApp.ViewModels"
              Title="ContainerAddPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <viewmodel:ContainerTypeToIntConverter x:Key="ContainerConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <VerticalStackLayout>
-		<Grid Margin="0, 30" RowDefinitions="Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="Auto,Auto" BindingContext="{Binding ContainerEdit}">
+		<Grid Margin="0, 30" RowDefinitions="Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="Auto,Auto" >
 
 			<Label Grid.Row="1" Grid.Column="0" Text="Name"/>
-			<Entry Grid.Row="1" Grid.Column="1" />
+			<Entry Grid.Row="1" Grid.Column="1" Text="{Binding ContainerEdit.Name}"/>
 
 			<Label Grid.Row="2" Grid.Column="0" Text="Type"/>
-			<Entry Grid.Row="2" Grid.Column="1" />
+			<Picker x:Name="ContainerTypePicker" Grid.Row="2" Grid.Column="1" ItemsSource="{Binding ContainerTypes}"
+                    SelectedIndex="{Binding ContainerEdit.Type, Mode=TwoWay, Converter={StaticResource ContainerConverter}}"></Picker>
 
-			<Label Grid.Row="3" Grid.Column="0" Text="Producer"/>
-
+            <Label Grid.Row="3" Grid.Column="0" Text="Producer"/>
+            <Picker Grid.Row="3" Grid.Column="1"
+                ItemsSource="{Binding ProducersList}" ItemDisplayBinding="{Binding Name}"
+                SelectedItem="{Binding ContainerEdit.Producer}" />
 
 			<Label Grid.Row="4" Grid.Column="0" Text="Production Year" ToolTipProperties.Text="{Binding Errors}"/>
-			<Entry Grid.Row="4" Grid.Column="1" />
-
+			<Entry Grid.Row="4" Grid.Column="1" Text="{Binding ContainerEdit.ProductionYear}" />
 		</Grid>
 
 		<HorizontalStackLayout>

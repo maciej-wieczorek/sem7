@@ -4,9 +4,19 @@
              x:Class="ContainersMauiApp.ProducerAddPage"
              Title="ProducerAddPage">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <Grid Margin="0, 30" RowDefinitions="Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="Auto,Auto" BindingContext="{Binding ProducerEdit}">
+
+			<Label Grid.Row="1" Grid.Column="0" Text="Name"/>
+			<Entry Grid.Row="1" Grid.Column="1" Text="{Binding Name}"/>
+
+			<Label Grid.Row="2" Grid.Column="0" Text="Address"/>
+			<Entry Grid.Row="2" Grid.Column="1" Text="{Binding Address}"/>
+
+		</Grid>
+
+		<HorizontalStackLayout>
+			<Button Text="Save" Command="{Binding SaveProducerCommand}"></Button>
+			<Button Text="Cancel" Command="{Binding CancelCommand}"></Button>
+		</HorizontalStackLayout>
     </VerticalStackLayout>
 </ContentPage>

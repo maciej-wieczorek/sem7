@@ -23,11 +23,12 @@ namespace ContainersApp.DAOSql
         public void AddContainer(IContainer container)
         {
             var newId = (_dbContext.containers.Max(c => (int?)c.Id) ?? 0) + 1;
+            container.Id = newId;
             var newContainer = new BO.Container
             {
                 Id = newId,
                 Name = container.Name,
-                Producer = (BO.Producer)container.Producer,
+                Producer = (BO.Producer)GetProducer(container.Producer.Id),
                 ProductionYear = container.ProductionYear,
                 Type = container.Type,
             };
@@ -67,6 +68,7 @@ namespace ContainersApp.DAOSql
         public void AddProducer(IProducer producer)
         {
             var newId = (_dbContext.producers.Max(p => (int?)p.Id) ?? 0) + 1;
+            producer.Id = newId;
             var newProducer = new BO.Producer
             {
                 Id = newId,

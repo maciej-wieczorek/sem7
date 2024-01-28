@@ -9,7 +9,7 @@
 
         <Button Text="Add new contaienr" Command="{Binding CreateNewContainerCommand}" />
 
-		<ListView ItemsSource="{Binding Containers}" ItemSelected="OnSelectedContainer" >
+		<ListView ItemsSource="{Binding Containers}" ItemTapped="OnSelectedContainer" >
             <ListView.Header>
                 <Grid Padding="10" ColumnSpacing="10">
                     <Grid.ColumnDefinitions>

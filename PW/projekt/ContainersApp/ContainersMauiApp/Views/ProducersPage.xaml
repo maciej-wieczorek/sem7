@@ -5,7 +5,8 @@
              xmlns:viewmodel="clr-namespace:ContainersMauiApp.ViewModels"
              Title="ProducersPage">
     <VerticalStackLayout>
-		<ListView ItemsSource="{Binding Producers}" SelectedItem="{Binding ProducerEdit}" >
+        <Button Text="Add new producer" Command="{Binding CreateNewProducerCommand}" />
+		<ListView ItemsSource="{Binding Producers}" ItemTapped="OnSelectedProducer" >
             <ListView.Header>
                 <Grid Padding="10" ColumnSpacing="10">
                     <Grid.ColumnDefinitions>
@@ -35,21 +36,5 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
 		</ListView>
-
-		<Grid Margin="0, 30" RowDefinitions="Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="Auto,Auto" BindingContext="{Binding ProducerEdit}">
-
-			<Label Grid.Row="1" Grid.Column="0" Text="Name"/>
-			<Entry Grid.Row="1" Grid.Column="1" Text="{Binding Name}"/>
-
-			<Label Grid.Row="2" Grid.Column="0" Text="Address"/>
-			<Entry Grid.Row="2" Grid.Column="1" Text="{Binding Address}"/>
-
-		</Grid>
-
-		<HorizontalStackLayout>
-			<Button Text="New Producer" Command="{Binding CreateNewProducerCommand}"></Button>
-			<Button Text="Save" Command="{Binding SaveProducerCommand}"></Button>
-			<Button Text="Cancel" Command="{Binding CancelCommand}"></Button>
-		</HorizontalStackLayout>
 	</VerticalStackLayout>
 </ContentPage>

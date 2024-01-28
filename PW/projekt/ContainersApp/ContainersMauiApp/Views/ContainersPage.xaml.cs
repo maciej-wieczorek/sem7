@@ -12,7 +12,7 @@ public partial class ContainersPage : ContentPage
 		_viewModel = viewModel;
 	}
 
-    public void OnSelectedContainer(object sender, SelectedItemChangedEventArgs args)
+    public void OnSelectedContainer(object sender, ItemTappedEventArgs args)
 	{
 		_viewModel.OnSelectedContainer(args);
 	}

@@ -34,11 +34,12 @@ namespace ContainersApp.DAOMock1
         public void AddContainer(IContainer container)
         {
             var newId = containers.Max(obj => obj.Id) + 1;
+            container.Id = newId;
             var newContainer = new BO.Container
             {
                 Id = newId,
                 Name = container.Name,
-                Producer = (BO.Producer)container.Producer,
+                Producer = (BO.Producer)GetProducer(container.Producer.Id),
                 ProductionYear = container.ProductionYear,
                 Type = container.Type,
             };
@@ -74,6 +75,7 @@ namespace ContainersApp.DAOMock1
         public void AddProducer(IProducer producer)
         {
             var newId = producers.Max(obj => obj.Id) + 1;
+            producer.Id = newId;
             var newProducer = new BO.Producer
             {
                 Id = newId,

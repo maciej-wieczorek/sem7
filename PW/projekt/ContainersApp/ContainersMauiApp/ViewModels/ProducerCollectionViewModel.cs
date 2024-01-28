@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Input;
+using System.Configuration;
 using ContainersApp.BLC;
 using IProducer = ContainersApp.Interfaces.IProducer;
 
@@ -27,14 +28,16 @@ namespace ContainersMauiApp.ViewModels
             CancelCommand = new Command(
                 execute: () =>
                 {
-                    ProducerEdit.PropertyChanged -= OnPersonEditPropertyChanged;
+                    ProducerEdit.PropertyChanged -= OnProducerEditPropertyChanged;
                     ProducerEdit = null;
                     IsEditing = false;
+                    IsAdding = false;
                     RefreshCanExecute();
+                    Shell.Current.GoToAsync("..");
                 },
                 canExecute: () =>
                 {
-                    return IsEditing;
+                    return IsEditing || IsAdding;
                 });
         }
 
@@ -44,28 +47,58 @@ namespace ContainersMauiApp.ViewModels
         [ObservableProperty]
         private bool isEditing;
 
+        [ObservableProperty]
+        private bool isAdding;
+
         [RelayCommand(CanExecute = nameof(CanCreateNewProducer))]
         private void CreateNewProducer()
         {
             ProducerEdit = new ProducerViewModel();
-            ProducerEdit.PropertyChanged += OnPersonEditPropertyChanged;
-            IsEditing = true;
+            ProducerEdit.PropertyChanged += OnProducerEditPropertyChanged;
+            IsAdding = true;
             RefreshCanExecute();
+            Shell.Current.GoToAsync(nameof(ProducerAddPage));
         }
 
         private bool CanCreateNewProducer()
         {
-            return !IsEditing;
+            return !IsAdding;
         }
 
         [RelayCommand(CanExecute = nameof(CanEditProducerBeSaved))]
         private void SaveProducer()
         {
-            Producers.Add(producerEdit);
-            ProducerEdit.PropertyChanged -= OnPersonEditPropertyChanged;
+            if (IsAdding)
+            {
+                _blc.AddProducer(ProducerEdit);
+                Producers.Add(ProducerEdit);
+                IsAdding = false;
+            }
+            else if (IsEditing)
+            {
+                _blc.UpdateProducer(ProducerEdit);
+                IsEditing = false;
+            }
+            ProducerEdit.PropertyChanged -= OnProducerEditPropertyChanged;
+            ProducerEdit = null;
+            RefreshCanExecute();
+            Shell.Current.GoToAsync("..");
+        }
+
+        [RelayCommand]
+        private void DeleteProducer()
+        {
+            IProducer itemToRemove = Producers.FirstOrDefault(c => c.Id == ProducerEdit.Id);
+            if (itemToRemove != null)
+            {
+                _blc.DeleteProducer(ProducerEdit.Id);
+                Producers.Remove(itemToRemove);
+            }
+            ProducerEdit.PropertyChanged -= OnProducerEditPropertyChanged;
             ProducerEdit = null;
             IsEditing = false;
             RefreshCanExecute();
+            Shell.Current.GoToAsync("..");
         }
 
         private bool CanEditProducerBeSaved()
@@ -77,6 +110,16 @@ namespace ContainersMauiApp.ViewModels
                    ProducerEdit.Address.Length > 1;
         }
 
+        public void OnSelectedProducer(ItemTappedEventArgs args)
+		{
+			ProducerEdit = args.Item as ProducerViewModel;
+            ProducerEdit.PropertyChanged += OnProducerEditPropertyChanged;
+			IsEditing = true;
+			
+			RefreshCanExecute();
+			Shell.Current.GoToAsync(nameof(ProducerEditPage));
+		}
+
         private void RefreshCanExecute()
         {
             //(CreateNewProducerCommand as Command)?.ChangeCanExecute();
@@ -86,7 +129,7 @@ namespace ContainersMauiApp.ViewModels
             (CancelCommand as Command)?.ChangeCanExecute();
         }
 
-        void OnPersonEditPropertyChanged(object sender, PropertyChangedEventArgs args)
+        void OnProducerEditPropertyChanged(object sender, PropertyChangedEventArgs args)
         {
             SaveProducerCommand.NotifyCanExecuteChanged();
         }
